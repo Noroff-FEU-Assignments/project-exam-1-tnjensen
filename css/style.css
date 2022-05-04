@@ -6,4 +6,52 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
 }
-
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Work Sans', Georgia, 'Times New Roman', Times, serif;
+}
+.wrapper{
+    max-width: 1160px;
+    margin: 0 auto;
+    background-color: #fffefe
+}
+header{
+    background-color: #60B1F8;
+    color: #fffefe;
+    padding: 10px 15px;
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon img{
+    border-radius: 50%;
+}
+.nav-menu{
+    float: right;
+}
+.nav-menu ul{
+    list-style-type: none;
+    display: inline-flex;
+}
+.nav-menu li{
+    padding-right: 10px;
+    justify-content: end;
+}
+.nav-menu a{
+    color: #fffefe;
+    text-decoration: none;
+}
+.nav-menu a:hover{
+    text-decoration: underline;
+}
+.main{
+    min-height: 80vh;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #168412;
+    min-height: 10vh;
+    align-items: center;
+    color: #fffefe;
+}

@@ -61,6 +61,7 @@ header{
 }
 .main{
     min-height: 80vh;
+    padding: 0 15px;
 }
 .main h2{
     text-align: center;
@@ -75,9 +76,8 @@ header{
     text-align: center;
     margin: 10px 0 15px 0;
 }
-.latest-posts{
+.latest-posts, .blog-posts, .blog-post{
     display: flex;
-    /* flex-wrap: wrap; */
     max-width: 1000px;
     margin: auto;
     gap: 20px;
@@ -107,6 +107,32 @@ header{
     position: relative;
     left: 30px;
     top: 300px;
+}
+.blog-posts{
+    flex-wrap: wrap;
+}
+.blog-posts img{
+    max-width: 400px;
+}
+.blog-post{
+    flex-direction: column;
+    margin-top: 10px;
+}
+.cta-small {
+    text-decoration: none;
+    padding: 5px 10px;
+    font-weight: 600;
+    color: #fffefe;
+    background-color: #168412;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    top: 3px;
+    float: right;  
+}
+  .cta-small:hover {
+    background-color: #fffefe;
+    color: #168412;
 }
 footer{
     display: flex;

@@ -6,27 +6,6 @@ const rightAngle = document.querySelector('.fa-angle-right');
 let counter = 0;
 let i;
 
-/* async function getLatestPosts(){
-    try{
-        let response = await fetch(url);
-        let results = await response.json();
-        latestPosts.innerHTML = "";
-        loader.innerHTML = "";
-        loader.classList.remove('loading-indicator');
-        console.log(results);
-        
-        results.forEach(post => {
-            latestPosts.innerHTML += `<div class="latest-post">
-                            <h4>${post.title.rendered}</h4>
-                            <img src="${post._embedded['wp:featuredmedia'][0].source_url}" alt="${post._embedded.author[0].name}" />
-                            <p>${post.excerpt.rendered}</p>
-                            </div>`;
-        }); 
-    }
-    catch(error){
-        latestPosts.innerHTML = `Error: ` + error;
-    }
-} */
 async function getLatestPosts(){
     try{
         let response = await fetch(url);

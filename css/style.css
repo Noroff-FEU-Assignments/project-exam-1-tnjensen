@@ -159,4 +159,6 @@ footer{
     .icon img{
         height: 50px;
     }
+    .latest-posts{
+        flex-wrap: wrap;   }
 }

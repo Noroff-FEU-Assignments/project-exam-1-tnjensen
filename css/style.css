@@ -11,7 +11,7 @@ body{
 h1,h2,h3,h4,h5,h6{
     font-family: 'Work Sans', Georgia, 'Times New Roman', Times, serif;
 }
-.blog{
+.blog, .blog-detail{
     background-repeat: repeat-y;
 }
 .wrapper{
@@ -38,11 +38,13 @@ header{
     padding: 10px 15px;
     min-height: 10vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 .icon img{
     border-radius: 50%;
+    height: 65px;
+    width: auto;
 }
 .nav-menu{
     float: right;
@@ -135,7 +137,7 @@ header{
     top: 3px;
     float: right;  
 }
-  .cta-small:hover {
+.cta-small:hover {
     background-color: #fffefe;
     color: #168412;
 }
@@ -152,7 +154,7 @@ footer{
         background-image: none;
     }
     header h1{
-        margin-left: 10px;
+        margin-left: 20px;
     }
     .icon img{
         height: 50px;

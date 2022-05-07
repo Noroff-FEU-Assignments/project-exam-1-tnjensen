@@ -1,5 +1,5 @@
 const latestPosts = document.querySelector('.latest-posts');
-const url = 'http://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
+const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');
 const leftAngle = document.querySelector('.fa-angle-left');
 const rightAngle = document.querySelector('.fa-angle-right');

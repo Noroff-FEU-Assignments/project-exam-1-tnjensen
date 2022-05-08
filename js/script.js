@@ -1,4 +1,4 @@
-const links = document.querySelector('nav a [href="'+document.URL+'"]');
+const links = document.querySelectorAll('nav a');
 const latestPosts = document.querySelector('.latest-posts');
 const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');
@@ -7,10 +7,9 @@ const rightAngle = document.querySelector('.fa-angle-right');
 let counter = 0;
 let i;
 
-for(let i = 0; i < document.links.length;i++){
-    console.log(document.links[i])
-    if(document.links[i].href == document.URL){
-        document.links[i].classList.add('active');
+for(let i = 0; i < links.length;i++){
+    if(links[i].href == document.URL){
+        links[i].classList.add('active');
     }
 }
 async function getLatestPosts(){

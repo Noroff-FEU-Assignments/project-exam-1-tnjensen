@@ -101,7 +101,7 @@ a.active{
     position: relative;
 }
 .latest-posts img{
-    max-width: 100%;
+    width: 90%;
     border-radius: 5px;
     padding: 10px 0 5px 0;
 }

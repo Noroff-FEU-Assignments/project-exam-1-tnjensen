@@ -6,6 +6,7 @@ const leftAngle = document.querySelector('.fa-angle-left');
 const rightAngle = document.querySelector('.fa-angle-right');
 let counter = 0;
 let i;
+const menuButton = document.querySelector('.menu-btn');
 
 for(let i = 0; i < links.length;i++){
     if(links[i].href == document.URL){
@@ -96,3 +97,13 @@ async function getLatestPosts(){
     }
 }
 getLatestPosts();
+
+menuButton.addEventListener('click', function(){
+    menuButton.classList.toggle('visible');
+});
+
+window.addEventListener('mouseup', function(event){
+    if(!event.target.closest('menu-btn')){
+        menuButton.classList.remove('visible');
+    }
+})

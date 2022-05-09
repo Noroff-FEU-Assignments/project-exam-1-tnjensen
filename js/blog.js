@@ -4,6 +4,7 @@ const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_emb
 const loader = document.querySelector('.loader');
 const moreButton = document.querySelector('.more');
 const moreUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed&page=2';
+const menuButton = document.querySelector('.menu-btn');
 
 for(let i = 0; i < document.links.length;i++){
     console.log(document.links[i])
@@ -66,3 +67,13 @@ async function getMorePosts(){
 moreButton.onclick = function(){
     getMorePosts();
 }
+
+menuButton.addEventListener('click', function(){
+    menuButton.classList.toggle('visible');
+});
+
+window.addEventListener('mouseup', function(event){
+    if(!event.target.closest('menu-btn')){
+        menuButton.classList.remove('visible');
+    }
+})

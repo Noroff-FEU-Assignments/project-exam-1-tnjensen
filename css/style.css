@@ -46,16 +46,34 @@ header{
     height: 65px;
     width: auto;
 }
+.menu-btn{
+    font-size: 2em;
+    display: block;
+    position: relative;
+    /* margin: 15px 25px; */
+}
+.menu-btn.visible ~ nav ul{
+    display: block;
+    background-color: #60B1F8;
+    max-height: 250px;
+    padding: 15px 0;
+    transition: all 0.5s;
+  }
 .nav-menu{
     float: right;
 }
 .nav-menu ul{
+    position: absolute;
+    right: 30px;
     list-style-type: none;
-    display: inline-flex;
+    display: none;
+    z-index: 10;
 }
 .nav-menu li{
+    padding: 10px;
     padding-right: 10px;
     justify-content: end;
+  
 }
 .nav-menu a{
     color: #fffefe;
@@ -187,15 +205,20 @@ footer{
     align-items: center;
     color: #fffefe;
 }
-@media screen and (max-width: 700px){
-    body{
-        background-image: none;
-    }
+@media screen and (min-width: 700px){
+
     header h1{
         margin-left: 20px;
     }
     .icon img{
         height: 50px;
+    }
+    .nav-menu ul{
+        display: inline-flex;
+        position: relative;
+    }
+    .menu-btn{
+        display: none;
     }
     .latest-posts{
         flex-wrap: wrap;   

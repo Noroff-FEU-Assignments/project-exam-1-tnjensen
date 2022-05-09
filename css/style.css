@@ -97,11 +97,16 @@ a.active{
 .latest-post{
     flex: 1 200px;
     padding: 10px;
+    padding-bottom: 40px;
     border: 2px solid #333;
     position: relative;
+    max-width: 250px;
+}
+.latest-post p{
+    word-wrap: break-word;
 }
 .latest-posts img{
-    width: 90%;
+    max-width: 200px;
     border-radius: 5px;
     padding: 10px 0 5px 0;
 }
@@ -124,26 +129,53 @@ a.active{
     flex-wrap: wrap;
 }
 .blog-posts img{
-    max-width: 400px;
-    margin: 10px 0;
+    margin: 10px 5px;
+}
+.blog-posts h3{
+    margin: 0 10px;
 }
 .blog-post{
     flex-direction: column;
     margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #333;
+    position: relative;
+    max-width: 50%;
+}
+.blog-post p, .blog-post img, .blog-post h3{
+    margin: 0 10px;
 }
 .cta-small {
     text-decoration: none;
     padding: 5px 10px;
     font-weight: 600;
+    border-radius: 5px;
+    border: none;
     color: #fffefe;
     background-color: #168412;
     border-radius: 5px;
     border: none;
-    position: relative;
-    top: 3px;
-    float: right;  
+    position: absolute;
+    bottom: 7px;
+    right: 10px;  
 }
 .cta-small:hover {
+    background-color: #fffefe;
+    color: #168412;
+}
+.more{
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #168412;
+    color: #fffefe;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    left: 40%;
+}
+.more:hover{
     background-color: #fffefe;
     color: #168412;
 }
@@ -166,5 +198,6 @@ footer{
         height: 50px;
     }
     .latest-posts{
-        flex-wrap: wrap;   }
+        flex-wrap: wrap;   
+    }
 }

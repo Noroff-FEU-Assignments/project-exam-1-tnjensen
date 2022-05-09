@@ -13,7 +13,7 @@ async function getPost(){
         loader.classList.remove('loading-indicator');
         console.log(result);
         
-        blogPost.innerHTML = `<h4>${result.title.rendered}</h4>
+        blogPost.innerHTML = `<h3>${result.title.rendered}</h3>
                         <img src="${result._embedded['wp:featuredmedia'][0].source_url}" alt="${result._embedded['wp:featuredmedia'][0].alt_text}" />
                         <p>${result.content.rendered}</p>`;
     

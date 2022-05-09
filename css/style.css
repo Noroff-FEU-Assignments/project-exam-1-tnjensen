@@ -173,7 +173,7 @@ a.active{
     border-radius: 5px;
     border: none;
     position: relative;
-    left: 40%;
+    left: 30%;
 }
 .more:hover{
     background-color: #fffefe;

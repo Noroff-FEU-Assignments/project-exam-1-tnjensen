@@ -165,6 +165,17 @@ a.active{
 .blog-post p, .blog-post img, .blog-post h3{
     margin: 0 10px;
 }
+.blog-post-detail{
+    padding: 10px;
+    border: 2px solid #333;
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.blog-post-detail img{
+    max-width: 100%;
+    padding: 10px 10px 10px 0;
+}
 .cta-small {
     text-decoration: none;
     padding: 5px 10px;

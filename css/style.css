@@ -64,7 +64,6 @@ header{
 }
 .nav-menu ul{
     position: absolute;
-    right: 30px;
     list-style-type: none;
     display: none;
     z-index: 10;

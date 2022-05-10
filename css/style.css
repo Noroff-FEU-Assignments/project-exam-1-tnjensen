@@ -10,6 +10,7 @@ body{
 }
 h1,h2,h3,h4,h5,h6{
     font-family: 'Work Sans', Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
 }
 .blog, .blog-detail{
     background-repeat: repeat-y;
@@ -41,15 +42,23 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+header h1{
+    margin-left: 10px;
+}
+h3, .latest-post h4{
+    font-style: italic;
+    font-weight: 400;
+}
 .icon img{
     border-radius: 50%;
-    height: 50px;
+    height: 35px;
     width: auto;
 }
 .menu-btn{
-    font-size: 2em;
+    font-size: 1.3rem;
     display: block;
     position: relative;
+    right: -5px;
 }
 .menu-btn:hover{
     cursor: pointer;
@@ -166,10 +175,13 @@ a.active{
     padding: 10px;
     border: 2px solid #333;
     position: relative;
-    max-width: 45%;
+    max-width: 75%;
+}
+.blog-post img{
+    max-width: 75%;
 }
 .blog-post p, .blog-post img, .blog-post h3{
-    margin: 0 10px;
+    margin: 0 5px;
 }
 .blog-post-detail{
     padding: 10px;
@@ -178,9 +190,15 @@ a.active{
     margin: 0 auto;
     margin-top: 20px;
 }
+.blog-post-detail h3{
+    text-align: center;
+}
 .blog-post-detail img{
-    max-width: 70%;
-    padding: 10px 10px 10px 0;
+    max-width: 65%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px 0;
 }
 .cta-small {
     text-decoration: none;
@@ -276,7 +294,26 @@ footer{
     color: #168412;
     border-radius: 2px;
 }
+@media screen and (min-width: 500px){
+    .icon img{
+        height: 50px;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-size: 1.6rem;
+    }
+    .menu-btn{
+        right: 0;
+        font-size: 1.5rem;
+    }
+    .blog-post img{
+        max-width: 75%;
+    }
+}
+
 @media screen and (min-width: 700px){
+    h1,h2,h3,h4,h5,h6{
+        font-size: 1.7rem;
+    }
     header h1{
         margin-left: 20px;
     }
@@ -299,6 +336,12 @@ footer{
     }
     .fa-angle-right{
         right: 30px;
+    }
+    .blog-post{
+        max-width: 60%;
+    }
+    .blog-post-detail p{
+        margin: 15px;
     }
     .modal-content{
         width: 100%;

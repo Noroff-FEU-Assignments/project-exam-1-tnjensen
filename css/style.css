@@ -43,14 +43,16 @@ header{
 }
 .icon img{
     border-radius: 50%;
-    height: 65px;
+    height: 50px;
     width: auto;
 }
 .menu-btn{
     font-size: 2em;
     display: block;
     position: relative;
-    /* margin: 15px 25px; */
+}
+.menu-btn:hover{
+    cursor: pointer;
 }
 .menu-btn.visible ~ nav ul{
     display: block;
@@ -64,12 +66,13 @@ header{
 }
 .nav-menu ul{
     position: absolute;
+    right: 25px;
     list-style-type: none;
     display: none;
     z-index: 10;
 }
 .nav-menu li{
-    padding: 10px;
+    padding: 10px 15px;
     padding-right: 10px;
     justify-content: end;
   
@@ -157,7 +160,7 @@ a.active{
     padding: 10px;
     border: 2px solid #333;
     position: relative;
-    max-width: 50%;
+    max-width: 45%;
 }
 .blog-post p, .blog-post img, .blog-post h3{
     margin: 0 10px;
@@ -190,7 +193,7 @@ a.active{
     border-radius: 5px;
     border: none;
     position: relative;
-    left: 30%;
+    left: 10%;
 }
 .more:hover{
     background-color: #fffefe;
@@ -204,13 +207,23 @@ footer{
     align-items: center;
     color: #fffefe;
 }
+.footer-social i{
+    margin-right: 10px;
+    padding: 5px;
+}
+.footer-social i:hover{
+    cursor: pointer;
+    background-color: #fffefe;
+    color: #168412;
+    border-radius: 2px;
+}
 @media screen and (min-width: 700px){
 
     header h1{
         margin-left: 20px;
     }
     .icon img{
-        height: 50px;
+        height: 60px;
     }
     .nav-menu ul{
         display: inline-flex;

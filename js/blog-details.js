@@ -5,6 +5,7 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const postId = params.get("id");
 const modal = document.getElementById('myModal');
+const menuButton = document.querySelector('.menu-btn');
 
 async function getPost(){
     try{
@@ -47,5 +48,15 @@ span.onclick = function(){
 window.addEventListener('mouseup', function(event){
     if(!event.target.closest('footer')){
         modal.style.display = "none";
+    }
+})
+
+menuButton.addEventListener('click', function(){
+    menuButton.classList.toggle('visible');
+});
+
+window.addEventListener('mouseup', function(event){
+    if(!event.target.closest('menu-btn')){
+        menuButton.classList.remove('visible');
     }
 })

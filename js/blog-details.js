@@ -15,7 +15,7 @@ async function getPost(){
         console.log(result);
         
         blogPost.innerHTML = `<h3>${result.title.rendered}</h3>
-                        <a href="javascript:void();" onclick="getFeaturedImageLarge();"><img id="imgFull" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
+                        <img id="imgFull" onclick="getFeaturedImageLarge();" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
                             alt="${result._embedded['wp:featuredmedia'][0].alt_text}" /></a>
                         <p>${result.content.rendered}</p>`;
     
@@ -31,11 +31,11 @@ function getFeaturedImageLarge(){
     console.log(imgFull);
     let imgModal = document.getElementById('imgModal');
     let captiontext = document.getElementById('caption');
-    imgFull.onclick = function(){
+    imgFull.addEventListener('click', function(){
         modal.style.display = "block";
         imgModal.src = this.src;
         captiontext.innerHTML = this.alt;
-    }
+    })
 }
 
 const span = document.getElementsByClassName('close')[0];
@@ -43,3 +43,9 @@ const span = document.getElementsByClassName('close')[0];
 span.onclick = function(){
     modal.style.display = "none";
 }
+
+window.addEventListener('mouseup', function(event){
+    if(!event.target.closest('footer')){
+        modal.style.display = "none";
+    }
+})

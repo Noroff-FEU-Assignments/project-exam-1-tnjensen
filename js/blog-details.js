@@ -4,6 +4,7 @@ const loader = document.querySelector('.loader');
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const postId = params.get("id");
+const modal = document.getElementById('myModal');
 
 async function getPost(){
     try{
@@ -14,8 +15,8 @@ async function getPost(){
         console.log(result);
         
         blogPost.innerHTML = `<h3>${result.title.rendered}</h3>
-                        <img src="${result._embedded['wp:featuredmedia'][0].source_url}" 
-                            alt="${result._embedded['wp:featuredmedia'][0].alt_text}" />
+                        <a href="javascript:void();" onclick="getFeaturedImageLarge();"><img id="imgFull" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
+                            alt="${result._embedded['wp:featuredmedia'][0].alt_text}" /></a>
                         <p>${result.content.rendered}</p>`;
     
     }
@@ -24,3 +25,21 @@ async function getPost(){
     }
 }
 getPost();
+
+function getFeaturedImageLarge(){
+    let imgFull = document.getElementById('imgFull');
+    console.log(imgFull);
+    let imgModal = document.getElementById('imgModal');
+    let captiontext = document.getElementById('caption');
+    imgFull.onclick = function(){
+        modal.style.display = "block";
+        imgModal.src = this.src;
+        captiontext.innerHTML = this.alt;
+    }
+}
+
+const span = document.getElementsByClassName('close')[0];
+
+span.onclick = function(){
+    modal.style.display = "none";
+}

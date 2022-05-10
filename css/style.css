@@ -173,7 +173,7 @@ a.active{
     margin-top: 20px;
 }
 .blog-post-detail img{
-    max-width: 100%;
+    max-width: 75%;
     padding: 10px 10px 10px 0;
 }
 .cta-small {
@@ -210,6 +210,49 @@ a.active{
     background-color: #fffefe;
     color: #168412;
 }
+#imgFull {
+    border-radius: 5px;
+    transition: 0.3s;
+}
+#imgFull:hover{
+    opacity: .7;
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    overflow: auto; /* scroll if needed */
+    background-color: rgb(0,0,0);
+    background-color: rgb(0,0,0, 0.9);
+}
+.modal-content{
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
 footer{
     display: flex;
     justify-content: space-around;
@@ -229,7 +272,6 @@ footer{
     border-radius: 2px;
 }
 @media screen and (min-width: 700px){
-
     header h1{
         margin-left: 20px;
     }
@@ -245,5 +287,8 @@ footer{
     }
     .latest-posts{
         flex-wrap: wrap;   
+    }
+    .modal-content{
+        width: 100%;
     }
 }

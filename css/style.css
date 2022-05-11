@@ -9,10 +9,7 @@ body{
 }
 h1,h2,h3,h4,h5,h6{
     font-family: 'Work Sans', Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.3rem;
-}
-.blog, .blog-detail{
-    background-repeat: repeat-y;
+    font-size: 1.4rem;
 }
 .wrapper{
     max-width: 1160px;
@@ -252,7 +249,6 @@ a.active{
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;

@@ -45,8 +45,11 @@ header{
 header h1{
     margin-left: 10px;
 }
-h3, .latest-post h4{
+h3{
     font-style: italic;
+    font-weight: 400;
+}
+.latest-post h4{
     font-weight: 400;
 }
 .icon img{

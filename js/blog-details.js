@@ -4,7 +4,8 @@ const loader = document.querySelector('.loader');
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const postId = params.get("id");
-const modal = document.getElementById('myModal');
+const modal = document.querySelector('.modal');
+const modalContent = document.querySelector('.modal-content');
 const menuButton = document.querySelector('.menu-btn');
 
 async function getPost(){
@@ -16,7 +17,7 @@ async function getPost(){
         console.log(result);
         
         blogPost.innerHTML = `<h3>${result.title.rendered}</h3>
-                        <img id="imgFull" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
+                        <img id="imgLarge" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
                             alt="${result._embedded['wp:featuredmedia'][0].alt_text}" /></a>
                         <p>${result.content.rendered}</p>`;
     
@@ -24,17 +25,19 @@ async function getPost(){
     catch(error){
         blogPost.innerHTML = `Error: ` + error;
     }
-    let imgFull = document.getElementById('imgFull');
-    imgFull.onclick = getFeaturedImageLarge;
+    let imgLarge = document.getElementById('imgLarge');
+    imgLarge.onclick = getFeaturedImageLarge;
 }
 getPost();
 
 function getFeaturedImageLarge(){
-    let imgModal = document.getElementById('imgModal');
+    /* let imgModal = document.getElementById('imgModal');
     let captiontext = document.getElementById('caption');
     modal.style.display = "block";
     imgModal.src = this.src;
-    captiontext.innerHTML = this.alt;
+    captiontext.innerHTML = this.alt; */
+    modal.style.display = "block";
+    modalContent.innerHTML = `<img src="${imgLarge.src}" alt=${imgLarge.alt};>`;
 }
 
 /* const span = document.getElementsByClassName('close')[0];

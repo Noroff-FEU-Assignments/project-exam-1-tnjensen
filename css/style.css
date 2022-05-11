@@ -5,8 +5,7 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
-    background: url('../images/norway.jpg');
-    background-repeat: no-repeat;
+    background: url('../images/norway.jpg') fixed;
 }
 h1,h2,h3,h4,h5,h6{
     font-family: 'Work Sans', Georgia, 'Times New Roman', Times, serif;
@@ -124,16 +123,18 @@ a.active{
     display: flex;
     flex-wrap: wrap;
     max-width: 500px;
-    margin: auto;
+    margin: 0 auto;
     gap: 20px;
+    margin-left: 25px;
 }
 .latest-post{
     flex: 1 200px;
     padding: 10px;
     padding-bottom: 40px;
     border: 2px solid #333;
-    position: relative;
-    max-width: 230px;
+    /* position: relative; */
+   /*  margin: 0 auto; */
+    max-width: 250px;
 }
 .latest-post p{
     word-wrap: break-word;
@@ -152,16 +153,18 @@ a.active{
 }
 .fa-angle-right{
     font-size: 3em;
-    position: relative;
-    top: 300px;
+    position: absolute;
+    top: 400px;
+    right: 15px;
 }
 .fa-angle-right:hover, .fa-angle-left:hover{
     opacity: .5;
 }
 .fa-angle-left{
     font-size: 3em;
-    position: relative;
-    top: 300px;
+    position: absolute;
+    top: 400px;
+    left: 15px;
 }
 .blog-posts{
     flex-wrap: wrap;
@@ -293,6 +296,9 @@ footer{
         right: 0;
         font-size: 1.5rem;
     }
+    .latest-posts{
+        margin-left: 30px;
+    }
     .blog-post img{
         max-width: 75%;
     }
@@ -320,16 +326,17 @@ footer{
     }
     .latest-posts{
         max-width: 1000px;
-        flex-wrap: wrap;   
+        flex-wrap: wrap;  
+        margin-left: 30px;
     }
     .fa-angle-left{
-        left:30px;
+        left: 20px;
     }
     .fa-angle-right{
-        right: 30px;
+        right: 20px;
     }
     .blog-post{
-        max-width: 60%;
+        max-width: 50%;
     }
     .blog-post-detail p{
         margin: 15px;
@@ -337,5 +344,17 @@ footer{
     .modal-content{
         width: 100%;
         max-width: 900px;
+    }
+}
+@media screen and (min-width: 1160px){
+    .fa-angle-left{
+        position: relative;
+        top: 300px;
+        left: 20px;
+    }
+    .fa-angle-right{
+        position: relative;
+        top: 300px;
+        right: 20px;
     }
 }

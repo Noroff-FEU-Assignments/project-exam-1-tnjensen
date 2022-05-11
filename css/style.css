@@ -178,7 +178,7 @@ a.active{
     max-width: 75%;
 }
 .blog-post img{
-    max-width: 75%;
+    max-width: 70%;
 }
 .blog-post p, .blog-post img, .blog-post h3{
     margin: 0 5px;
@@ -186,7 +186,7 @@ a.active{
 .blog-post-detail{
     padding: 10px;
     border: 2px solid #333;
-    max-width: 75%;
+    max-width: 70%;
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -194,10 +194,10 @@ a.active{
     text-align: center;
 }
 .blog-post-detail img{
-    max-width: 65%;
-    position: relative;
+    max-width: 70%;
+    /* position: relative;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0); */
     padding: 10px 0;
 }
 .cta-small {
@@ -251,14 +251,14 @@ a.active{
     top: 0;
     width: 100%;
     height: auto;
-    overflow: auto; /* scroll if needed */
+    overflow: auto; 
     background-color: rgb(0,0,0);
     background-color: rgb(0,0,0, 0.9);
 }
 .modal-content{
     margin: auto;
     display: block;
-    width: 80%;
+    width: 100%;
     max-width: 700px;
 }
 .close {
@@ -276,6 +276,26 @@ a.active{
     text-decoration: none;
     cursor: pointer;
 }
+/* #imgModal:hover{
+    cursor: pointer;
+    opacity: .7;
+    transition: .3s;
+}
+.modal{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    padding-top: 100px;
+    background-color: #000;
+}
+.modal-content{
+    display: block;
+    margin: 0 auto;
+    max-width: 700px;
+    width: 80%;
+} */
 footer{
     display: flex;
     justify-content: space-around;

@@ -24,11 +24,7 @@ async function getLatestPosts(){
         
         for(i = 0; i <= 3; i++){ 
             leftAngle.style.display = "none";
-            latestPosts.innerHTML += `<div class="latest-post">
-                            <h4>${results[i].title.rendered}</h4>
-                            <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
-                            <p>${results[i].excerpt.rendered}</p>
-                            </div>`;
+            createHTML(results);
 
             rightAngle.onclick = function(){
                 latestPosts.innerHTML = "";
@@ -37,22 +33,14 @@ async function getLatestPosts(){
                 
                 leftAngle.style.display = "block";
                 for(i = 4; i <= 7 ; i++){
-                        latestPosts.innerHTML += `<div class="latest-post">
-                        <h4>${results[i].title.rendered}</h4>
-                        <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
-                        <p>${results[i].excerpt.rendered}</p>
-                        </div>`;
+                    createHTML(results);
                     
                 }
                 if(counter > 1 ){      
                     rightAngle.style.display = "none"; 
                     latestPosts.innerHTML = "";
                     for(i = 8; i <= 11 ; i++){
-                        latestPosts.innerHTML += `<div class="latest-post">
-                        <h4>${results[i].title.rendered}</h4>
-                        <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
-                        <p>${results[i].excerpt.rendered}</p>
-                        </div>`;
+                        createHTML(results);
                     
                 }
  
@@ -68,22 +56,14 @@ async function getLatestPosts(){
                     for(i = 4; i <= 7; i++){
                         leftAngle.style.display = "block";
                         rightAngle.style.display = "block";
-                        latestPosts.innerHTML += `<div class="latest-post">
-                        <h4>${results[i].title.rendered}</h4>
-                        <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
-                        <p>${results[i].excerpt.rendered}</p>
-                        </div>`;
+                        createHTML(results);
                     }   
                 }
                 if(counter === 0){
                     leftAngle.style.display = "none";
                     rightAngle.style.display = "block";
                     for(i = 0; i <= 3; i++){
-                        latestPosts.innerHTML += `<div class="latest-post">
-                        <h4>${results[i].title.rendered}</h4>
-                        <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
-                        <p>${results[i].excerpt.rendered}</p>
-                        </div>`;
+                        createHTML(results);
                     }  
                 }   
             }  
@@ -98,6 +78,13 @@ async function getLatestPosts(){
 }
 getLatestPosts();
 
+function createHTML(results){
+    latestPosts.innerHTML += `<div class="latest-post">
+    <h4>${results[i].title.rendered}</h4>
+    <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
+    <p>${results[i].excerpt.rendered}</p>
+    </div>`;
+}
 menuButton.addEventListener('click', function(){
     menuButton.classList.toggle('visible');
 });

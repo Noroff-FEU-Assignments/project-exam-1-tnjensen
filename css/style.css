@@ -107,6 +107,36 @@ a.active{
     text-align: center;
     padding: 15px 0;
 }
+.sidebar{
+    max-width: 25%;
+    float: left;
+    background-color: #f3f3f3;
+    min-height: 100vh;
+    padding: 10px;
+    display: none;
+}
+.sidebar ul{
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+.sidebar li{
+    position: relative;
+    left: -40px;
+}
+.sidebar a{
+    text-decoration: none;
+}
+.sign-up{
+    display: flex;
+    flex-direction: column;
+}
+.sign-up h6{
+    margin-bottom: 10px;
+}
+.sign-up .more{
+    position: relative;
+    left: 0;
+}
 .latest{
     display: flex;
     flex-wrap: wrap;
@@ -133,7 +163,7 @@ a.active{
    /*  margin: 0 auto; */
     max-width: 230px;
 }
-.latest-post p{
+.latest-post p, .latest-post h4{
     word-wrap: break-word;
 }
 .latest-posts img{
@@ -159,8 +189,8 @@ a.active{
 }
 .fa-angle-left{
     font-size: 3em;
-    position: absolute;
-    top: 400px;
+    position: relative;
+    top: 200px;
     left: 15px;
 }
 .blog-posts{
@@ -320,10 +350,20 @@ footer{
     .menu-btn{
         display: none;
     }
+    .sidebar{
+        display: block;
+        max-width: 15%;
+    }
     .latest-posts{
         max-width: 1000px;
         flex-wrap: wrap;  
         margin-left: 30px;
+    }
+    .latest-post{
+        max-width: 200px;
+    }
+    .latest-post img{
+        max-width: 90%;
     }
     .more{
         left: 25%;

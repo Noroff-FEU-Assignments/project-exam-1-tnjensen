@@ -17,26 +17,28 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <!-- Hotjar Tracking Code for https://gorgeous-travesseiro-0d3bbb.netlify.app/ -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:2966930,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2966930, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
   </head>
   <body class="index">
     <div class="wrapper">
       <header>
         <div class="icon">
           <a href="index.html">
-            <img
-              src="images/dipper_thumb.jpg"
-              alt="white-throated dipper"
-            />
+            <img src="images/dipper_thumb.jpg" alt="white-throated dipper" />
           </a>
         </div>
         <h1>Norwegian Wildlife</h1>
@@ -44,22 +46,38 @@
           <div class="menu-btn">
             <i class="fa fa-bars"></i>
           </div>
-        <nav class="nav-menu">
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="main">
+        <h2>Welcome to our wildlife blog</h2>
+        <div class="loader loading-indicator"></div>
+        <section class="sidebar">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-        </nav>
-      </div>
-      </header>
-      <div class="main">
-        <h2>Welcome to our wildlife blog</h2>
-        <div class="loader loading-indicator"></div>
+          <div class="sign-up">
+            <h6>Sign up for our news-letter</h6>
+            <label for="name">Name</label>
+            <input type="text" id="name" />
+            <label for="email">Email</label>
+            <input type="text" id="email" />
+            <button class="more">Sign up</button>
+          </div>
+        </section>
         <section class="latest">
-            <h3>Latest posts</h3>
-            <i class="fa fa-angle-left"></i>
+          <h3>Latest posts</h3>
+          <i class="fa fa-angle-left"></i>
           <div class="latest-posts">Loading..</div>
           <i class="fa fa-angle-right"></i>
         </section>

@@ -231,7 +231,7 @@ a.active{
     border-radius: 5px;
     border: none;
     position: relative;
-    left: 10%;
+    left: 15%;
 }
 .more:hover{
     background-color: #fffefe;
@@ -324,6 +324,9 @@ footer{
         max-width: 1000px;
         flex-wrap: wrap;  
         margin-left: 30px;
+    }
+    .more{
+        left: 25%;
     }
     .fa-angle-left{
         left: 0px;

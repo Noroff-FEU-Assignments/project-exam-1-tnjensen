@@ -168,8 +168,6 @@ a.active{
     padding: 10px;
     padding-bottom: 40px;
     border: 2px solid #333;
-    /* position: relative; */
-   /*  margin: 0 auto; */
     max-width: 230px;
 }
 .latest-post p, .latest-post h4{
@@ -198,8 +196,8 @@ a.active{
 }
 .fa-angle-left{
     font-size: 3em;
-    position: relative;
-    top: 200px;
+    position: absolute;
+    top: 400px;
     left: 15px;
 }
 .blog-posts{

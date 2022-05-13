@@ -1,4 +1,4 @@
-const links = document.querySelectorAll('nav a');
+const links = document.querySelectorAll('a:not(.sidebar a)');
 const latestPosts = document.querySelector('.latest-posts');
 const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');
@@ -9,7 +9,7 @@ let i;
 const menuButton = document.querySelector('.menu-btn');
 
 for(let i = 0; i < links.length;i++){
-    if(links[i].href == document.URL){
+    if(links[i] == document.URL){
         links[i].classList.add('active');
     }
 }

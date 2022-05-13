@@ -1,4 +1,4 @@
-const links = document.querySelectorAll('a:not(.sidebar a)');
+const links = document.querySelectorAll('nav a:not(.sidebar a)');
 const latestPosts = document.querySelector('.latest-posts');
 const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');

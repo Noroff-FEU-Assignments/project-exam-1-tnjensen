@@ -1,4 +1,4 @@
-const links = document.querySelectorAll('nav a');
+const links = document.querySelectorAll('nav a:not(.sidebar)');
 const latestPosts = document.querySelector('.latest-posts');
 const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');
@@ -9,7 +9,7 @@ let i;
 const menuButton = document.querySelector('.menu-btn');
 
 for(let i = 0; i < links.length;i++){
-    if(links[i].href == document.URL){
+    if(links[i] == document.URL){
         links[i].classList.add('active');
     }
 }
@@ -34,23 +34,19 @@ async function getLatestPosts(){
                 leftAngle.style.display = "block";
                 for(i = 4; i <= 7 ; i++){
                     createHTML(results);
-                    
                 }
                 if(counter > 1 ){      
                     rightAngle.style.display = "none"; 
                     latestPosts.innerHTML = "";
-                    for(i = 8; i <= 11 ; i++){
+                    for(i = 8; i < results.length ; i++){
                         createHTML(results);
-                    
-                }
- 
+                    }
                 }
             }
             
             leftAngle.onclick = function(){
                 latestPosts.innerHTML = "";
                 counter--;
-                console.log(counter);
                 
                 if(counter === 1){
                     for(i = 4; i <= 7; i++){

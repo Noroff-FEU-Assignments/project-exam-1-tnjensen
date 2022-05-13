@@ -1,5 +1,5 @@
 const blogPosts = document.querySelector('.blog-posts');
-const links = document.querySelector('nav a [href="'+document.URL+'"]');
+const links = document.querySelectorAll('nav a:not(.sidebar)');
 const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');
 const moreButton = document.querySelector('.more');
@@ -8,8 +8,8 @@ const menuButton = document.querySelector('.menu-btn');
 
 for(let i = 0; i < document.links.length;i++){
     console.log(document.links[i])
-    if(document.links[i].href == document.URL){
-        document.links[i].classList.add('active');
+    if(links[i] == document.URL){
+        links[i].classList.add('active');
     }
 }
 

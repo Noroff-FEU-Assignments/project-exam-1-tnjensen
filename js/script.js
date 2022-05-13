@@ -79,7 +79,7 @@ function createHTML(results){
     <h4>${results[i].title.rendered}</h4>
     <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
     <p>${results[i].excerpt.rendered}</p>
-    </div>`;
+    </div>`; 
 }
 menuButton.addEventListener('click', function(){
     menuButton.classList.toggle('visible');

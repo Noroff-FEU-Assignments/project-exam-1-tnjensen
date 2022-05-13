@@ -113,9 +113,15 @@ a.active{
     max-width: 25%;
     float: left;
     background-color: #f3f3f3;
-    min-height: 100vh;
+    min-height: 70vh;
     padding: 10px;
     display: none;
+}
+.blog .sidebar{
+    max-width: 20%;
+    margin-left: 10%;
+    padding: 20px;
+    /* transform: translate(-25%, 0); */
 }
 .sidebar ul{
     list-style-type: none;
@@ -184,8 +190,8 @@ a.active{
 }
 .fa-angle-right{
     font-size: 3em;
-    position: absolute;
-    top: 400px;
+    position: relative;
+    top: 200px;
     right: 15px;
 }
 .fa-angle-right:hover, .fa-angle-left:hover{
@@ -265,7 +271,7 @@ a.active{
     border-radius: 5px;
     border: none;
     position: relative;
-    left: 15%;
+    left: 13%;
 }
 .more:hover, .more-posts:hover{
     background-color: #fffefe;
@@ -356,7 +362,7 @@ footer{
     }
     .sidebar{
         display: block;
-        max-width: 15%;
+        max-width: 20%;
     }
     .latest-posts{
         max-width: 1000px;
@@ -379,7 +385,10 @@ footer{
         right: 0;
     }
     .blog-post{
-        max-width: 50%;
+        max-width: 70%;
+    }
+    .more-posts{
+        left: 41%;
     }
     .blog-post-detail p{
         margin: 15px;
@@ -399,5 +408,8 @@ footer{
         position: relative;
         top: 300px;
         right: 20px;
+    }
+    .sidebar{
+        max-width: 15%;
     }
 }

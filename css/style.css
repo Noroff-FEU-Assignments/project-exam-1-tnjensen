@@ -187,8 +187,8 @@ a.active{
 }
 .fa-angle-right{
     font-size: 3em;
-    position: absolute;
-    top: 400px;
+    position: relative;
+    top: 150px;
     right: 15px;
 }
 .fa-angle-right:hover, .fa-angle-left:hover{
@@ -196,8 +196,8 @@ a.active{
 }
 .fa-angle-left{
     font-size: 3em;
-    position: absolute;
-    top: 400px;
+    position: relative;
+    top: 150px;
     left: 15px;
 }
 .blog-posts{

@@ -44,6 +44,8 @@ header h1{
 h3{
     font-style: italic;
     font-weight: 400;
+    text-align: center;
+    margin-bottom: 10px;
 }
 .latest-post h4{
     font-weight: 400;
@@ -122,15 +124,22 @@ a.active{
 .sidebar li{
     position: relative;
     left: -40px;
+    padding: 10px;
 }
 .sidebar a{
     text-decoration: none;
+}
+.sidebar a:hover{
+    text-decoration: underline;
 }
 .sign-up{
     display: flex;
     flex-direction: column;
 }
 .sign-up h6{
+    margin-bottom: 10px;
+}
+.sign-up input[type="text"]{
     margin-bottom: 10px;
 }
 .sign-up .more{
@@ -176,7 +185,7 @@ a.active{
     flex-direction: column;
     margin: auto;
     gap: 20px;
-    word-wrap:break-word ;
+    word-wrap:break-word;
 }
 .fa-angle-right{
     font-size: 3em;
@@ -204,8 +213,8 @@ a.active{
 }
 .blog-post{
     flex-direction: column;
-    margin-top: 10px;
     padding: 10px;
+    margin-top: 10px;
     border: 2px solid #333;
     position: relative;
     max-width: 75%;
@@ -353,6 +362,10 @@ footer{
     .sidebar{
         display: block;
         max-width: 15%;
+    }
+    .blog .sidebar{
+        max-width: 25%;
+        margin-top: 10px;
     }
     .latest-posts{
         max-width: 1000px;

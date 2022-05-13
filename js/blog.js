@@ -2,7 +2,7 @@ const blogPosts = document.querySelector('.blog-posts');
 const links = document.querySelectorAll('nav a:not(.sidebar a)');
 const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');
-const moreButton = document.querySelector('.more');
+const moreButton = document.querySelector('.more-posts');
 const moreUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed&page=2';
 const menuButton = document.querySelector('.menu-btn');
 

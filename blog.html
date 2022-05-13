@@ -11,75 +11,86 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <!-- Hotjar Tracking Code for https://gorgeous-travesseiro-0d3bbb.netlify.app/ -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:2966930,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2966930, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
   </head>
   <body class="blog">
     <div class="wrapper">
       <header>
         <div class="icon">
           <a href="index.html">
-              <img
-            src="images/dipper_thumb.jpg"
-            alt="white-throated dipper"
-          /></a>
+            <img src="images/dipper_thumb.jpg" alt="white-throated dipper" />
+          </a>
         </div>
         <h1>Norwegian Wildlife</h1>
         <div class="menu-wrap">
           <div class="menu-btn">
             <i class="fa fa-bars"></i>
           </div>
-        <nav class="nav-menu">
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="main">
+        <h2>Blog posts</h2>
+        <section class="sidebar">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-        </nav>
+          <div class="sign-up">
+            <h6>Sign up for our news-letter</h6>
+            <label for="name">Name</label>
+            <input type="text" id="name" />
+            <label for="email">Email</label>
+            <input type="text" id="email" />
+            <button class="sign-up-btn">Sign up</button>
+          </div>
+        </section>
+        <section class="main-content">
+          <div class="loader loading-indicator"></div>
+          <div class="blog-posts"></div>
+          <button class="more-posts">
+            Older posts
+            <i class="fa fa-angle-down"></i>
+          </button>
+        </section>
       </div>
-      </header>
-    <div class="main">
-       <h2>Blog posts</h2>
-       <section class="sidebar">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="sign-up">
-          <h6>Sign up for our news-letter</h6>
-          <label for="name">Name</label>
-          <input type="text" id="name" />
-          <label for="email">Email</label>
-          <input type="text" id="email" />
-          <button class="more">Sign up</button>
-        </div>
-      </section>
-       <div class="loader loading-indicator"></div>
-       <div class="blog-posts"></div>
-       <button class="more-posts">Older posts <i class="fa fa-angle-down"></i></button>
-    </div>
-    <footer class="footer">
+      <footer class="footer">
         <div class="footer-content">Copyright &copy;</div>
         <div class="footer-social">
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-instagram"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-facebook"></i>
+          <i class="fa fa-instagram"></i>
         </div>
-    </footer>
+      </footer>
     </div>
     <!-- <script src="js/script.js"></script> -->
     <script src="js/blog.js"></script>

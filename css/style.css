@@ -148,9 +148,19 @@ a.active{
 .sign-up input[type="text"]{
     margin-bottom: 10px;
 }
-.sign-up .more{
-    position: relative;
-    left: 0;
+.sign-up-btn{
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: #fffefe;
+    background-color: #168412;
+    border-radius: 2px;
+    border: none;
+}
+.sign-up-btn:hover{
+    cursor: pointer;
+    color: #168412;
+    background-color: #fffefe;
+    border: 1px solid #333;
 }
 .latest{
     display: flex;
@@ -247,8 +257,6 @@ a.active{
     text-decoration: none;
     padding: 5px 10px;
     font-weight: 600;
-    border-radius: 5px;
-    border: none;
     color: #fffefe;
     background-color: #168412;
     border-radius: 5px;
@@ -260,8 +268,9 @@ a.active{
 .cta-small:hover {
     background-color: #fffefe;
     color: #168412;
+    border: 1px solid #333;
 }
-.more, .more-posts{
+.more-posts{
     margin-top: 10px;
     padding: 5px 10px;
     background-color: #168412;
@@ -269,13 +278,14 @@ a.active{
     font-weight: 600;
     font-size: 1.1rem;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #168412;
     position: relative;
-    left: 13%;
+    left: 15%;
 }
-.more:hover, .more-posts:hover{
+.more-posts:hover{
     background-color: #fffefe;
     color: #168412;
+    border: 1px solid #333;
 }
 #imgLarge {
     border-radius: 5px;
@@ -375,9 +385,6 @@ footer{
     .latest-post img{
         max-width: 90%;
     }
-    .more{
-        left: 25%;
-    }
     .fa-angle-left{
         left: 0;
     }
@@ -387,11 +394,11 @@ footer{
     .blog-post{
         max-width: 70%;
     }
-    .more-posts{
-        left: 41%;
-    }
     .blog-post-detail p{
         margin: 15px;
+    }
+    .more-posts{
+        left: 42%;
     }
     .modal-content{
         width: 100%;

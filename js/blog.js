@@ -48,7 +48,7 @@ async function getMorePosts(){
         console.log(results);
         
         for(i = 0; i < results.length; i++){ 
-            let blogLink =`<a href="blog-detail.html?id=${results[i].id}" class="cta cta-small">Read more</a>`; 
+            let blogLink =`<a href="blog-detail.html?id=${results[i].id}" class="cta-small">Read more</a>`; 
             blogPosts.innerHTML += `<div class="blog-post">
                             <h3>${results[i].title.rendered}</h3>
                             <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />

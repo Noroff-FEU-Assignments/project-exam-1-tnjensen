@@ -31,20 +31,9 @@ async function getPost(){
 getPost();
 
 function getFeaturedImageLarge(){
-    /* let imgModal = document.getElementById('imgModal');
-    let captiontext = document.getElementById('caption');
-    modal.style.display = "block";
-    imgModal.src = this.src;
-    captiontext.innerHTML = this.alt; */
     modal.style.display = "block";
     modalContent.innerHTML = `<img src="${imgLarge.src}" alt=${imgLarge.alt};>`;
 }
-
-/* const span = document.getElementsByClassName('close')[0];
-
-span.onclick = function(){
-    modal.style.display = "none";
-} */
 
 window.addEventListener('mouseup', function(event){
     if(!event.target.closest('footer')){

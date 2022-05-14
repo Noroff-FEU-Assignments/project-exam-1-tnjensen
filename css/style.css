@@ -117,6 +117,7 @@ a.active{
     padding: 7px;
     display: none;
     margin-right: 5px;
+    margin-top: 10px;
 }
 .blog .sidebar{
     max-width: 20%;
@@ -170,6 +171,7 @@ a.active{
     flex-wrap: wrap;
     max-width: 500px;
     margin: 0 auto;
+    margin-top: 10px;
     gap: 15px;
     margin-left: 25px;
 }
@@ -178,8 +180,6 @@ a.active{
     padding: 10px;
     padding-bottom: 40px;
     border: 1px solid #333;
-    /* position: relative; */
-   /*  margin: 0 auto; */
     max-width: 200px;
 }
 .latest-post p, .latest-post h4{
@@ -247,15 +247,11 @@ a.active{
 }
 .blog-post-detail img{
     max-width: 90%;
-    /* position: relative;
-    left: 50%;
-    transform: translate(-50%, 0); */
     padding: 10px 0;
 }
 .cta-small {
     text-decoration: none;
     padding: 5px 10px;
-    font-weight: 600;
     color: #fffefe;
     background-color: #168412;
     border-radius: 5px;
@@ -269,19 +265,24 @@ a.active{
     color: #168412;
     border: 1px solid #333;
 }
-.more-posts{
-    margin-top: 10px;
+.blog-detail .cta-small{
+    position: relative;
+    left: 15%;
+    top: 10px;
+}
+.more-posts a{
+    text-decoration: none;
     padding: 5px 10px;
     background-color: #168412;
     color: #fffefe;
-    font-weight: 600;
     font-size: 1.1rem;
     border-radius: 5px;
-    border: 1px solid #168412;
     position: relative;
     left: 15%;
+    max-width: 150px;
+    margin-bottom: 10px;
 }
-.more-posts:hover{
+.more-posts a:hover{
     background-color: #fffefe;
     color: #168412;
     border: 1px solid #333;
@@ -399,9 +400,9 @@ footer{
     .blog-post-detail p{
         margin: 15px;
     }
-    .more-posts{
+    /* .more-posts{
         left: 42%;
-    }
+    } */
     .blog .sidebar{
         max-width: 20%;
     }

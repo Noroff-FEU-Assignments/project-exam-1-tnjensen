@@ -51,11 +51,46 @@
       </div>
       </header>
     <div class="main">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sint
-        obcaecati expedita hic doloremque omnis minima animi, recusandae amet ex
-        quod id possimus vitae, laboriosam iusto sed eveniet odio. Obcaecati.
-      </p>
+      <h1>Contact Us</h1>
+      <div class="contact-details">
+        <p>Phone: +47 345 678 912</p>
+        <p>Email: wildlifeblog@mail.com</p>
+        <hr />
+      </div>
+      <div class="contact-location">
+        <h2>Find our offices</h2>
+        <div
+          id="embedmap"
+          style="
+            max-width: 100%;
+            list-style: none;
+            transition: none;
+            overflow: hidden;
+            width: 250px;
+            height: 250px;
+          "
+        >
+          <div
+            id="embedmap-canvas"
+            style="height: 100%; width: 100%; max-width: 100%"
+          >
+            <iframe
+              style="height: 100%; width: 100%; border: 0"
+              src="https://www.google.com/maps/embed/v1/place?q=solsiden&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+              title="Map of office location"
+            >
+            </iframe>
+          </div>
+          <a
+            class="googlemap-html"
+            href="https://www.embed-map.com"
+            id="authmaps-data"
+            >https://www.embed-map.com</a
+          >
+        </div>
+        <!--#embedmap-->
+      </div>
+      <!--contact-location-->
     </div>
     <footer class="footer">
       <div class="footer-content">Copyright &copy; 2022<script>new Date().getFullYear()>2022&&document.write("-"+new

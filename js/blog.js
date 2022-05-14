@@ -73,7 +73,7 @@ menuButton.addEventListener('click', function(){
 });
 
 window.addEventListener('mouseup', function(event){
-    if(!event.target.closest('menu-btn')){
+    if(!event.target.closest('.menu-btn')){
         menuButton.classList.remove('visible');
     }
 })

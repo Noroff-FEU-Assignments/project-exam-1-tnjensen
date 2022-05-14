@@ -37,8 +37,6 @@ async function getPosts(){
     catch(error){
         blogPosts.innerHTML = `Error: ` + error;
     }
-   /*  moreButton.onclick = getMorePosts; */
-    /* console.log(moreButton); */
     
 }
 getPosts();
@@ -51,7 +49,6 @@ async function getMorePosts(){
         loader.innerHTML = "";
         moreButton.style.display = "none";
         loader.classList.remove('loading-indicator');
-        console.log(results);
         
         for(i = 0; i < results.length; i++){ 
             let blogLink =`<a href="blog-detail.html?id=${results[i].id}" class="cta-small">Read more..</a>`; 
@@ -68,9 +65,6 @@ async function getMorePosts(){
         blogPosts.innerHTML = `Error: ` + error;
     }
 }
-/* moreButton.onclick = function(){
-    getMorePosts();
-} */
 
 menuButton.addEventListener('click', function(){
     menuButton.classList.toggle('visible');

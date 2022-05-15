@@ -202,20 +202,22 @@ a.active{
 }
 .circle-icon{
     background-color: #60B1F8;
-    padding: 10px;
-    height: 35px;
-    width: 35px;
+   /*  padding: 10px; */
+    min-width: 50px;
+    height: 50px;
     border-radius: 50%;
     position: relative;
     top: 150px;
 }
 .fa-angle-left, .fa-angle-right{
+    padding: 10px;
+    
    position: relative;
-   top: -9px;
-   right: -3px;
+   top: -2px;
+   right: -8px;
 }
 .fa-angle-left{
-    right: 0;
+    left: 5px;
 }
 .fa-angle-left, .fa-angle-right{
     color: #fffefe;
@@ -444,18 +446,18 @@ footer{
     }
     .circle-icon{
         background-color: #60B1F8;
-        padding: 20px;
-        height: 50px;
-        width: 50px;
+        height: 60px;
+        min-width: 60px;
         border-radius: 50%;
     }
     .fa-angle-left, .fa-angle-right{
        position: relative;
-       top: -12px;
-       left: -3px;
+       top: 0;
+       left: 10px;
+       font-size: 2.5em;
     }
     .fa-angle-right{
-        left: 0;
+        left: 15px;
     }
     .blog-post{
         max-width: 70%;

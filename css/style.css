@@ -43,7 +43,7 @@ h1{
     text-align: center;
     margin: 10px 0;
 }
-h2,h3,h6{
+h3{
     font-style: italic;
     font-weight: 400;
     text-align: center;
@@ -51,6 +51,7 @@ h2,h3,h6{
 }
 h6{
     text-align: left;
+    font-weight: 400;
 }
 .latest-post h4{
     font-weight: 400;
@@ -415,11 +416,11 @@ footer{
         height: 50px;
     }
     h1,h2,h3,h4,h5,h6{
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
     .menu-btn{
         right: 0;
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
 
     .latest-posts{

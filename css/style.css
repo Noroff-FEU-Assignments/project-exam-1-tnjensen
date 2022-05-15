@@ -211,13 +211,12 @@ a.active{
 }
 .fa-angle-left, .fa-angle-right{
     padding: 10px;
-    
    position: relative;
-   top: -2px;
-   right: -8px;
+   top: -1px;
+   right: -10px;
 }
 .fa-angle-left{
-    left: 5px;
+    left: 8px;
 }
 .fa-angle-left, .fa-angle-right{
     color: #fffefe;

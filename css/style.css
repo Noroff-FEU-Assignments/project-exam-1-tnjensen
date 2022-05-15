@@ -38,10 +38,11 @@ header{
     justify-content: space-around;
     align-items: center;
 }
-header h1{
-    margin-left: 10px;
+h1{
+    text-align: center;
+    margin: 10px 0;
 }
-h3{
+h2{
     font-style: italic;
     font-weight: 400;
     text-align: center;
@@ -319,19 +320,31 @@ a.active{
     flex-wrap: wrap;
     justify-content: space-between;
 }
-  .about-item{
+.about h1, .contact h1{
+    text-align: center;
+    margin: 10px 0;
+}
+.about-item{
     margin: 10px 0;
     max-width: 250px;
 }
-  .about-social{
+.about-item img{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.about-social{
     margin: 20px 0;
 }
-  .about-social ul {
+.about-social ul {
     display: inline-flex;
 }
-  .about-social li{
+.about-social li{
     list-style-type: none;
     padding: 0 10px 0 0;
+}
+.contact-details{
+    text-align: center;
 }
 .contact-details p{
     font-weight: 600;
@@ -339,10 +352,12 @@ a.active{
 }
 hr{
     border: 1px solid #0a3945;
-    margin: 10px 0;
+    margin: 15px 0;
 }
-.contact-location{
-    margin: 20px 0;
+.contact-location, #embedmap{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 footer{
     display: flex;
@@ -382,6 +397,10 @@ footer{
     .modal-content img{
         width: 100%;
     }
+    #embedmap {
+        width: 350px !important;
+        height: 350px !important;
+      }
 }
 
 @media screen and (min-width: 700px){
@@ -431,9 +450,6 @@ footer{
     .blog-post-detail p{
         margin: 15px;
     }
-    /* .more-posts{
-        left: 42%;
-    } */
     .blog .sidebar{
         max-width: 20%;
     }
@@ -444,6 +460,15 @@ footer{
     .modal-content{
         width: 100%;
         max-width: 900px;
+    }
+    .about-list{
+        display: inline-flex;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .about-item{
+        margin: 0 20px;
     }
 }
 @media screen and (min-width: 1160px){

@@ -28,7 +28,7 @@ async function getLatestPosts(){
             circleLeft.style.display = "none";
             createHTML(results);
 
-            rightAngle.onclick = function(){
+            circleRight.onclick = function(){
                 latestPosts.innerHTML = "";
                 counter++;
                
@@ -47,7 +47,7 @@ async function getLatestPosts(){
                 }
             }
             
-            leftAngle.onclick = function(){
+            circleLeft.onclick = function(){
                 latestPosts.innerHTML = "";
                 counter--;
                 

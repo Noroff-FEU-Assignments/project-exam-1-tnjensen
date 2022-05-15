@@ -4,6 +4,8 @@ const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_emb
 const loader = document.querySelector('.loader');
 const leftAngle = document.querySelector('.fa-angle-left');
 const rightAngle = document.querySelector('.fa-angle-right');
+const circleLeft = document.querySelector('.left');
+const circleRight = document.querySelector('.right');
 let counter = 0;
 let i;
 const menuButton = document.querySelector('.menu-btn');
@@ -23,19 +25,21 @@ async function getLatestPosts(){
         
         for(i = 0; i <= 3; i++){ 
             leftAngle.style.display = "none";
+            circleLeft.style.display = "none";
             createHTML(results);
 
             rightAngle.onclick = function(){
                 latestPosts.innerHTML = "";
                 counter++;
-                console.log(counter);
-                
+               
                 leftAngle.style.display = "block";
+                circleLeft.style.display = "block";
                 for(i = 4; i <= 7 ; i++){
                     createHTML(results);
                 }
                 if(counter > 1 ){      
                     rightAngle.style.display = "none"; 
+                    circleRight.style.display = "none";
                     latestPosts.innerHTML = "";
                     for(i = 8; i < results.length ; i++){
                         createHTML(results);
@@ -51,12 +55,16 @@ async function getLatestPosts(){
                     for(i = 4; i <= 7; i++){
                         leftAngle.style.display = "block";
                         rightAngle.style.display = "block";
+                        circleLeft.style.display = "block";
+                        circleRight.style.display = "block";
                         createHTML(results);
                     }   
                 }
                 if(counter === 0){
                     leftAngle.style.display = "none";
                     rightAngle.style.display = "block";
+                    circleRight.style.display = "block";
+                    circleLeft.style.display = "none";
                     for(i = 0; i <= 3; i++){
                         createHTML(results);
                     }  

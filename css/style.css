@@ -42,11 +42,14 @@ h1{
     text-align: center;
     margin: 10px 0;
 }
-h2{
+h2,h3,h6{
     font-style: italic;
     font-weight: 400;
     text-align: center;
     margin-bottom: 10px;
+}
+h6{
+    text-align: left;
 }
 .latest-post h4{
     font-weight: 400;
@@ -174,7 +177,6 @@ a.active{
     margin: 0 auto;
     margin-top: 10px;
     gap: 15px;
-    margin-left: 25px;
 }
 .latest-post{
     flex: 1 100%;
@@ -187,7 +189,7 @@ a.active{
     word-wrap: break-word;
 }
 .latest-posts img{
-    max-width: 170px;
+    width: 100%;
     border-radius: 5px;
     padding: 10px 0 5px 0;
 }
@@ -198,26 +200,18 @@ a.active{
     gap: 20px;
     word-wrap:break-word ;
 }
-.fa-angle-right{
-    font-size: 3em;
+.fa-stack{
     position: relative;
-    top: 200px;
-    right: 15px;
+    top: 150px;
 }
-.fa-angle-right:hover, .fa-angle-left:hover{
-    opacity: .5;
+.fa-angle-left, .fa-angle-right{
+    color: #fffefe;
 }
-.fa-angle-left{
-    font-size: 3em;
-    position: relative;
-    top: 200px;
-    left: 15px;
+.fa-circle{
+    color: #60B1F8;
 }
 .blog-posts{
     flex-wrap: wrap;
-}
-.blog-posts img{
-    margin: 10px 5px;
 }
 .blog-posts h3{
     margin: 0 10px;
@@ -231,9 +225,10 @@ a.active{
     max-width: 75%;
 }
 .blog-post img{
-    max-width: 70%;
+    width: 100%;
+    padding: 0 10px;
 }
-.blog-post p, .blog-post img, .blog-post h3{
+.blog-post p, .blog-post h3{
     margin: 0 5px;
 }
 .blog-post-detail{
@@ -292,6 +287,10 @@ a.active{
     border-radius: 5px;
     transition: 0.3s;
     cursor: pointer;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 #imgLarge:hover{
     opacity: .7;
@@ -391,9 +390,6 @@ footer{
     .latest-posts{
         margin-left: 30px;
     }
-    .blog-post img{
-        max-width: 75%;
-    }
     .modal-content img{
         width: 100%;
     }
@@ -432,15 +428,6 @@ footer{
     .latest-post{
         max-width: 190px;
     }
-    .latest-post img{
-        max-width: 90%;
-    }
-    .fa-angle-left{
-        left: 0;
-    }
-    .fa-angle-right{
-        right: 0;
-    }
     .blog-post{
         max-width: 70%;
     }
@@ -475,7 +462,7 @@ footer{
     .latest-posts{
         margin-left: 15px;
     }
-    .fa-angle-left{
+    /* .fa-angle-left{
         position: relative;
         top: 300px;
         left: 10px;
@@ -484,7 +471,7 @@ footer{
         position: relative;
         top: 300px;
         right: 10px;
-    }
+    } */
     .sidebar{
         max-width: 15%;
     }

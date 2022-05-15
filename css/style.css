@@ -6,10 +6,11 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
     background: url('../images/norway.jpg') fixed;
+    font-size: .9rem;
 }
 h1,h2,h3,h4,h5,h6{
     font-family: 'Work Sans', Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 .wrapper{
     max-width: 1160px;
@@ -328,8 +329,13 @@ a.active{
 .modal-content img{
     width: 100%;
 }
+.about .main {
+    margin: 0 auto;
+    max-width: 80%;
+}
 .about-list{
-    margin: 40px 0 30px 0;
+    margin: 0 auto;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -339,19 +345,29 @@ a.active{
     margin: 10px 0;
 }
 .about-item{
+    text-align: left;
     margin: 10px 0;
     max-width: 250px;
+}
+.about-social{
+    display: inline-flex;
+    list-style-type: none;
+    margin: 20px 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.about-item li{
+    margin-right: 15px;
 }
 .about-item img{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
-.about-social{
-    margin: 20px 0;
-}
 .about-social ul {
     display: inline-flex;
+    padding: 0;
 }
 .about-social li{
     list-style-type: none;
@@ -392,6 +408,9 @@ footer{
     border-radius: 2px;
 }
 @media screen and (min-width: 500px){
+    body{
+        font-size: 1rem;
+    }
     .icon img{
         height: 50px;
     }
@@ -400,8 +419,9 @@ footer{
     }
     .menu-btn{
         right: 0;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
+
     .latest-posts{
         margin-left: 30px;
     }
@@ -411,7 +431,8 @@ footer{
     #embedmap {
         width: 350px !important;
         height: 350px !important;
-      }
+    }
+
 }
 
 @media screen and (min-width: 700px){
@@ -485,7 +506,7 @@ footer{
         transform: translateX(-50%);
     }
     .about-item{
-        margin: 0 20px;
+        margin: 30px 10px;
     }
 }
 @media screen and (min-width: 1160px){
@@ -504,5 +525,8 @@ footer{
     } */
     .sidebar{
         max-width: 15%;
+    }
+    .about-item{
+        margin: 40px 10px;
     }
 }

@@ -387,19 +387,23 @@ hr{
     border: 1px solid #0a3945;
     margin: 15px 0;
 }
-.contact-location, #embedmap{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.contact .main-content{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.contact-location{
+    margin: auto;
+    margin-bottom: 10px;
 }
 .contact-form{
-    display: flex;
+    margin: 0 auto;
 }
 form{
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 350px;
     background-color: #f3f3f3;
     padding: 20px;
+    margin: 0 auto;
 }
 .form-error{
     color: tomato;
@@ -463,8 +467,8 @@ footer{
         width: 100%;
     }
     #embedmap {
-        width: 350px !important;
-        height: 350px !important;
+        width: 300px !important;
+        height: 300px !important;
     }
 
 }
@@ -544,6 +548,13 @@ footer{
     }
     .about-item{
         margin: 30px 10px;
+    }
+    #embedmap {
+        width: 350px !important;
+        height: 350px !important;
+    }
+    .contact .main-content{
+        flex-direction: row;
     }
 }
 @media screen and (min-width: 1160px){

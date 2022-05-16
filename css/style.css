@@ -392,11 +392,12 @@ hr{
     left: 50%;
     transform: translateX(-50%);
 }
-form{
-    max-width: 350px;
-    margin: 0 auto;
+.contact-form{
     display: flex;
-    flex-direction: column;
+}
+form{
+    max-width: 400px;
+    margin: 0 auto;
     background-color: #f3f3f3;
     padding: 20px;
 }
@@ -407,8 +408,7 @@ form{
 form > div{
     margin-bottom: 10px;
 }
-
-input[type="text"], textarea{
+.contact #fullName,.contact #email,.contact #subject, .contact #message{
     display: flex;
     width: 250px;
 }

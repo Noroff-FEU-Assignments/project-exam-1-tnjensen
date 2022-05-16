@@ -385,7 +385,9 @@ a.active{
 }
 hr{
     border: 1px solid #0a3945;
-    margin: 15px 0;
+    margin: 25px 0;
+    position: relative;
+    top: 10px;
 }
 .contact .main-content{
     display: flex;

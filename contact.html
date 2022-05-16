@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Contact page for our wildlife blog, with contact and location info, allowing users to register as members" />
+    <meta
+      name="description"
+      content="Contact page for our wildlife blog, with contact and location info, allowing users to register as members"
+    />
     <title>Blog Site - tnjensen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,53 +15,59 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <!-- Hotjar Tracking Code for https://gorgeous-travesseiro-0d3bbb.netlify.app/ -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:2966930,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2966930, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
   </head>
   <body class="contact">
     <div class="wrapper">
       <header>
         <div class="icon">
           <a href="index.html">
-              <img
-            src="images/dipper_thumb.jpg"
-            alt="white-throated dipper"
-          /></a>
+            <img src="images/dipper_thumb.jpg" alt="white-throated dipper" />
+          </a>
         </div>
         <h2>Norwegian Wildlife</h2>
         <div class="menu-wrap">
           <div class="menu-btn">
             <i class="fa fa-bars"></i>
           </div>
-        <nav class="nav-menu">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </header>
-    <div class="main">
-      <h1>Contact Us</h1>
-      <div class="contact-details">
-        <p>Phone: +47 345 678 912</p>
-        <p>Email: wildlifeblog@mail.com</p>
-        <hr />
-      </div>
-      <div class="contact-location">
+      <div class="main">
+        <h1>Contact Us</h1>
+        <div class="contact-details">
+          <p>Phone: +47 345 678 912</p>
+          <p>Email: wildlifeblog@mail.com</p>
+          <hr />
+        </div>
+        <!-- <div class="contact-location">
         <h2>Find our offices</h2>
         <div
           id="embedmap"
@@ -89,19 +98,50 @@
             >https://www.embed-map.com</a
           >
         </div>
-        <!--#embedmap-->
+      </div> -->
+        <!--contact-location-->
+        <h2>Get in touch</h2>
+        <form id="contactForm">
+          <div>
+            <label for="name" id="fullName">
+              Name
+              <input type="text" id="fullName" placeholder="Full Name" />
+            </label>
+            <div class="form-error" id="firstName-error">Please enter your first name</div>
+          </div>
+          
+          <div>
+            <label for="email" id="email">
+              Email
+              <input type="text" id="email" placeholder="Email" />
+            </label>
+            <div class="form-error" id="email-error">Please enter a valid email address</div>
+          </div>
+          <div>
+            <label for="message" id="messageLabel">Message</label>
+              <textarea cols="30" rows="5" id="message" name="message">
+              </textarea>
+           
+          </div>
+          <div>
+            <input type="submit" name="submit" id="submit" value="Send" />
+          </div>
+        </form>
       </div>
-      <!--contact-location-->
-    </div>
-    <footer class="footer">
-      <div class="footer-content">Copyright &copy; 2022<script>new Date().getFullYear()>2022&&document.write("-"+new
-        Date().getFullYear());</script></div>
-        <div class="footer-social">
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-instagram"></i>
+      <footer class="footer">
+        <div class="footer-content">
+          Copyright &copy; 2022
+          <script>
+            new Date().getFullYear() > 2022 &&
+              document.write("-" + new Date().getFullYear());
+          </script>
         </div>
-    </footer>
+        <div class="footer-social">
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-facebook"></i>
+          <i class="fa fa-instagram"></i>
+        </div>
+      </footer>
     </div>
     <script src="js/script.js"></script>
   </body>

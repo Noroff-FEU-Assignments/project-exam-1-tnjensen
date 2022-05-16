@@ -393,6 +393,49 @@ hr{
     left: 50%;
     transform: translateX(-50%);
 }
+form{
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+    padding: 20px 0;
+}
+.form-error{
+    color: tomato;
+    display: none;
+}
+form > div{
+    margin-bottom: 10px;
+}
+input[type="text"]{
+    
+}
+textarea{
+    position: relative;
+    left: 22px;
+}
+#messageLabel{
+    position: relative;
+    top: -70px;
+    left: 22px;
+}
+#submit{
+    position: relative;
+    left: -28px;
+    padding: 5px 15px;
+    background-color: #168412;
+    color: #fffefe;
+    border: none;
+    border-radius: 5px;
+}
+#submit:hover{
+    background-color: #fffefe;
+    color: #168412;
+    border: 1px solid #333;
+}
 footer{
     display: flex;
     justify-content: space-around;

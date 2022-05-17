@@ -57,8 +57,8 @@ h6{
 }
 .icon img{
     border-radius: 50%;
-    height: 35px;
-    width: auto;
+    height: 40px;
+    width: 40px;
 }
 .menu-btn{
     font-size: 1.3rem;
@@ -159,7 +159,7 @@ a.active{
     padding: 5px 10px;
     color: #fffefe;
     background-color: #168412;
-    border-radius: 2px;
+    border-radius: 5px;
     border: none;
 }
 .sign-up-btn:hover{
@@ -271,7 +271,7 @@ a.active{
     color: #fffefe;
     background-color: #168412;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #168412;
     position: absolute;
     bottom: 7px;
     right: 10px;  
@@ -291,7 +291,6 @@ a.active{
     padding: 5px 10px;
     background-color: #168412;
     color: #fffefe;
-    font-size: 1.1rem;
     border-radius: 5px;
     position: relative;
     left: 15%;
@@ -404,7 +403,7 @@ hr{
 form{
     max-width: 350px;
     background-color: #f3f3f3;
-    padding: 20px;
+    padding: 25px;
     margin: 0 auto;
 }
 .form-error{
@@ -454,6 +453,7 @@ footer{
     }
     .icon img{
         height: 50px;
+        width: 50px;
     }
     h1,h2,h3,h4,h5,h6{
         font-size: 1.7rem;
@@ -484,6 +484,7 @@ footer{
     }
     .icon img{
         height: 60px;
+        width: 60px;
     }
     .nav-menu ul{
         display: inline-flex;

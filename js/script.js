@@ -22,6 +22,7 @@ async function getLatestPosts(){
         latestPosts.innerHTML = "";
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
+        console.log(results);
         
         for(i = 0; i <= 3; i++){ 
             leftAngle.style.display = "none";

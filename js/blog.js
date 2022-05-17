@@ -1,8 +1,8 @@
 const blogPosts = document.querySelector('.blog-posts');
 const links = document.querySelectorAll('nav a:not(.sidebar)');
-const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
+const url = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
 const loader = document.querySelector('.loader');
-const moreUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed&page=2';
+const moreUrl = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed&page=2';
 const menuButton = document.querySelector('.menu-btn');
 const morePosts = document.querySelector('.more-posts');
 

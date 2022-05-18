@@ -41,7 +41,6 @@ header{
 }
 h1{
     text-align: center;
-    padding: 20px 0 10px 0;
 }
 h2{
     font-style: italic;
@@ -251,20 +250,6 @@ a.active{
 .blog-post p, .blog-post h3{
     margin: 0 5px;
 }
-.blog-post-detail{
-    padding: 10px;
-    border: 2px solid #333;
-    max-width: 70%;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-.blog-post-detail h3{
-    text-align: center;
-}
-.blog-post-detail img{
-    max-width: 90%;
-    padding: 10px 0;
-}
 .cta-small {
     text-decoration: none;
     padding: 5px 10px;
@@ -302,6 +287,20 @@ a.active{
     color: #168412;
     border: 1px solid #333;
 }
+.blog-post-detail{
+    padding: 10px;
+    border: 2px solid #333;
+    max-width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.blog-post-detail h3{
+    text-align: center;
+}
+.blog-post-detail img{
+    max-width: 90%;
+    padding: 10px 0;
+}
 #imgLarge {
     border-radius: 5px;
     transition: 0.3s;
@@ -331,6 +330,22 @@ a.active{
 }
 .modal-content img{
     width: 100%;
+}
+.comment-form, .blog-comments{
+    max-width: 70%;
+    margin: auto;
+    margin-top: 30px;
+}
+.blog-comments{
+     text-align: left;
+}
+.blog-comment{
+    padding: 10px;
+    background-color: #333;
+    color: #fffefe;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 10px;
 }
 .about .main {
     margin: 0 auto;
@@ -383,10 +398,7 @@ a.active{
     padding: 5px 0;
 }
 hr{
-    border: 1px solid #0a3945;
-    margin: 25px 0;
-    position: relative;
-    top: 10px;
+    margin: 20px 0;
 }
 .contact .main-content{
     display: flex;
@@ -471,6 +483,18 @@ footer{
     #embedmap {
         width: 300px !important;
         height: 300px !important;
+    }
+    .comment-form{
+        max-width: 80%;
+        margin: auto;
+        margin-top: 30px;
+    }
+    .blog-comment{
+        max-width: 350px;
+    }
+    .comment-form h3, .blog-comments h3{
+        text-align: center;
+        margin-bottom: 10px;
     }
 
 }

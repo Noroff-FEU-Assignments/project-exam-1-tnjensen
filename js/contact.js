@@ -49,6 +49,5 @@ function checkLength(value, len){
 function validateEmail(email){
     const regEx = /^.+@.+$/;
     const patternMatches = regEx.test(email);
-    return patternMatches;
-    
+    return patternMatches; 
 }

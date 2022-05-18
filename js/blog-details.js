@@ -13,6 +13,13 @@ const authorEmail = document.querySelector('input[type="email"].value');
 const authorComment = document.querySelector('input[type="comment"].value');
 const postComment = document.querySelector('#submit');
 const blogComment = document.querySelector('.blog-comments');
+const form = document.querySelector('#commentForm');
+const fullName = document.querySelector('#name');
+const fullNameError = document.querySelector('#name-error');
+const email = document.querySelector('#email');
+const emailError = document.querySelector('#email-error');
+const comment = document.querySelector('#comment');
+const commentError = document.querySelector('#comment-error');
 
 async function getPost(){
     try{
@@ -20,8 +27,7 @@ async function getPost(){
         let result = await response.json();
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
-        /* console.log(result); */
-        
+       /*  console.log(result); */
         blogPost.innerHTML = `<h3>${result.title.rendered}</h3>
                         <img id="imgLarge" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
                             alt="${result._embedded['wp:featuredmedia'][0].alt_text}" /></a>
@@ -57,26 +63,29 @@ window.addEventListener('mouseup', function(event){
     }
 })
 
-postComment.onclick = function(event){
+postComment.addEventListener( 'submit', submitComment);
+async function submitComment(event){
     event.preventDefault();
     let postUrl = `https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments/?id=${postId}`;
-    let response = fetch(postUrl, {
+    let response = await fetch(postUrl, {
         method: 'POST',
         body: JSON.stringify({
-            'id': postId,
-            'name': authorName,
-            'email': authorEmail,
-            'comment': authorComment 
+            post: postId,
+            author_name: authorName,
+            author_email: authorEmail,
+            content: authorComment
         }),
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         }
     })
     .then(response =>{
-        if(response){
+        if(response.ok === true){
             //Success
+            console.log('Success');
+            
         }
-        console.log(response.body);
+        console.log(response);
         return response.json();
         
 
@@ -91,7 +100,7 @@ async function getComment(){
         let result = await response.json();
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
-        console.log(result);
+        /* console.log(result); */
         
         for(let i = 0; i < result.length; i++){
             blogComment.innerHTML += `<div class="blog-comment">
@@ -110,3 +119,41 @@ async function getComment(){
     
 }
 getComment();
+
+function validateForm(event){
+    event.preventDefault();
+
+    if(checkLength(fullName.value, 0)){
+        fullNameError.style.display = 'none';
+    }
+    else{
+        fullNameError.style.display = 'block';
+    }
+    if(validateEmail(email.value)){
+        emailError.style.display = 'none';
+    }
+    else{
+        emailError.style.display = 'block';
+    }
+    if(checkLength(comment.value, 5)){
+        commentError.style.display = 'none';
+    }
+    else{
+        commentError.style.display = 'block';
+    }
+}
+form.addEventListener("submit", validateForm);
+
+function checkLength(value, len){
+    if(value.trim().length > len){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function validateEmail(email){
+    const regEx = /^.+@.+$/;
+    const patternMatches = regEx.test(email);
+    return patternMatches; 
+}

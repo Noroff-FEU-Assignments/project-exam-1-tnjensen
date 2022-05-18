@@ -336,6 +336,10 @@ a.active{
     margin: auto;
     margin-top: 30px;
 }
+.blog-comments #name,.blog-comments #email,.blog-comments #comment{
+    display: block;
+    width: 250px;
+}
 .blog-comments{
      text-align: left;
 }
@@ -433,7 +437,7 @@ form > div{
     padding: 5px 15px;
     background-color: #168412;
     color: #fffefe;
-    border: none;
+    border: 1px solid #168412;
     border-radius: 5px;
 }
 #submit:hover{

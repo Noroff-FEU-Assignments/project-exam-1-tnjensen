@@ -268,8 +268,7 @@ a.active{
 }
 .blog-detail .cta-small{
     position: relative;
-    left: 15%;
-    top: 10px;
+    top: 50px;
 }
 .more-posts a{
     text-decoration: none;
@@ -334,7 +333,10 @@ a.active{
 .comment-form, .blog-comments{
     max-width: 70%;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
+}
+.comment-form h3{
+    margin-top: 60px;
 }
 .blog-comments #name,.blog-comments #email,.blog-comments #comment{
     display: block;

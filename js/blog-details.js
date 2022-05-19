@@ -31,8 +31,9 @@ async function getPost(){
         blogPost.innerHTML = `<h3>${result.title.rendered}</h3>
                         <img id="imgLarge" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
                             alt="${result._embedded['wp:featuredmedia'][0].alt_text}" /></a>
-                        <p>${result.content.rendered}</p>`;
-    
+                        <p>${result.content.rendered}</p>
+                        <div><a href="/blog.html" class="cta-small">Go back</a></div>`;
+                        
     }
     catch(error){
         blogPost.innerHTML = `Error: ` + error;
@@ -71,9 +72,9 @@ async function submitComment(event){
         method: 'POST',
         body: JSON.stringify({
             post: postId,
-            author_name: authorName,
-            author_email: authorEmail,
-            content: authorComment
+            author_name: authorName.value,
+            author_email: authorEmail.value,
+            content: authorComment.value
         }),
         headers: {
             'Content-Type': 'application/json'

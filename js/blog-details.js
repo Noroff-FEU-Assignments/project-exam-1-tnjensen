@@ -8,17 +8,14 @@ const postId = params.get("id");
 const modal = document.querySelector('.modal');
 const modalContent = document.querySelector('.modal-content');
 const menuButton = document.querySelector('.menu-btn');
-const authorName = document.querySelector('input[type="name"].value');
-const authorEmail = document.querySelector('input[type="email"].value');
-const authorComment = document.querySelector('input[type="comment"].value');
+const fullName = document.querySelector('#name');
+const email = document.querySelector('#email');
+const comment = document.querySelector('#comment');
 const postComment = document.querySelector('#submit');
 const blogComment = document.querySelector('.blog-comments');
 const form = document.querySelector('#commentForm');
-const fullName = document.querySelector('#name');
 const fullNameError = document.querySelector('#name-error');
-const email = document.querySelector('#email');
 const emailError = document.querySelector('#email-error');
-const comment = document.querySelector('#comment');
 const commentError = document.querySelector('#comment-error');
 
 async function getPost(){
@@ -27,7 +24,7 @@ async function getPost(){
         let result = await response.json();
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
-       /*  console.log(result); */
+        /* console.log(result); */
         blogPost.innerHTML = `<h3>${result.title.rendered}</h3>
                         <img id="imgLarge" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
                             alt="${result._embedded['wp:featuredmedia'][0].alt_text}" /></a>
@@ -40,6 +37,7 @@ async function getPost(){
     }
     let imgLarge = document.getElementById('imgLarge');
     imgLarge.onclick = getFeaturedImageLarge;
+    /* let nonce = response.JSON() */
 }
 getPost();
 
@@ -64,34 +62,68 @@ window.addEventListener('mouseup', function(event){
     }
 })
 
-postComment.addEventListener( 'submit', submitComment);
+/* postComment.addEventListener( 'click', submitComment);
+
 async function submitComment(event){
     event.preventDefault();
+    console.log('clicked');
+    
     let postUrl = `https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments/?id=${postId}`;
     let response = await fetch(postUrl, {
         method: 'POST',
         body: JSON.stringify({
-            post: postId,
-            author_name: authorName.value,
-            author_email: authorEmail.value,
-            content: authorComment.value
+            "post": postId,
+            "author_name": fullName.value,
+            "author_email": email.value,
+            "content": comment.value
         }),
         headers: {
             'Content-Type': 'application/json'
         }
     })
-    .then(response =>{
-        if(response.ok === true){
-            //Success
-            console.log('Success');
-            
-        }
+    .then(response => response.json() )
+    .then (response => {
         console.log(response);
-        return response.json();
+        
+        
         
 
     })
     .catch(error => console.error('Error', error));
+}
+ */
+form.addEventListener( 'submit', handleSubmit);
+
+async function handleSubmit(evt) {
+    evt.preventDefault();
+
+    const data = JSON.stringify({
+        post: postId,
+        author_name: fullName.value,
+        author_email: email.value,
+        content: comment.value,
+    });
+
+    let postUrl = `https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments`;    
+    let response = await fetch(postUrl, {
+        method: 'post',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: data,
+    })
+    .then((response) => {
+    if (response.ok === true) {
+        // Submitted successfully!
+    }
+
+    return response.json();
+    })
+    .then((object) => {
+    // Comment submission failed.
+    // Output `object.message` to see the error message.
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 async function getComment(){
@@ -104,7 +136,7 @@ async function getComment(){
         /* console.log(result); */
         
         for(let i = 0; i < result.length; i++){
-            blogComment.innerHTML += `<div class="blog-comment">
+            blogComment.innerHTML += `<div class="posted-comment">
             <p>Posted by: <b>${result[i].author_name}</b></p>
             <p>Date: <b>${result[i].date}</b></p>
             <p>Comment: <b>${result[i].content.rendered}</b></p>

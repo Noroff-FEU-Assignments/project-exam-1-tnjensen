@@ -62,36 +62,6 @@ window.addEventListener('mouseup', function(event){
     }
 })
 
-/* postComment.addEventListener( 'click', submitComment);
-
-async function submitComment(event){
-    event.preventDefault();
-    console.log('clicked');
-    
-    let postUrl = `https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments/?id=${postId}`;
-    let response = await fetch(postUrl, {
-        method: 'POST',
-        body: JSON.stringify({
-            "post": postId,
-            "author_name": fullName.value,
-            "author_email": email.value,
-            "content": comment.value
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json() )
-    .then (response => {
-        console.log(response);
-        
-        
-        
-
-    })
-    .catch(error => console.error('Error', error));
-}
- */
 form.addEventListener( 'submit', handleSubmit);
 
 async function handleSubmit(evt) {
@@ -133,7 +103,6 @@ async function getComment(){
         let result = await response.json();
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
-        /* console.log(result); */
         
         for(let i = 0; i < result.length; i++){
             blogComment.innerHTML += `<div class="posted-comment">
@@ -143,8 +112,6 @@ async function getComment(){
             <hr>
             </div>`;
         }
-        
-
     }
     catch(error){
         blogComment.innerHTML = `Error: ` + error;

@@ -41,6 +41,7 @@ header{
 }
 h1{
     text-align: center;
+    margin-top: 10px;
 }
 h2{
     font-style: italic;
@@ -197,7 +198,7 @@ a.active{
     flex-direction: column;
     margin: auto;
     gap: 20px;
-    word-wrap:break-word ;
+    word-wrap:break-word;
 }
 .circle-icon{
     background-color: #60B1F8;
@@ -215,9 +216,9 @@ a.active{
 }
 .fa-angle-left, .fa-angle-right{
     padding: 10px;
-   position: relative;
-   top: -1px;
-   right: -10px;
+    position: relative;
+    top: -1px;
+    right: -10px;
 }
 .fa-angle-left{
     left: 8px;
@@ -330,20 +331,24 @@ a.active{
 .modal-content img{
     width: 100%;
 }
-.comment-form, .blog-comments{
-    max-width: 70%;
+#commentForm{
+    max-width: 300px;
+    background-color: #f3f3f3;
+    padding: 25px;
     margin: auto;
-    margin-top: 20px;
+    
 }
 .comment-form h3{
     margin-top: 60px;
 }
-.blog-comments #name,.blog-comments #email,.blog-comments #comment{
-    display: block;
-    width: 250px;
+
+.comment-form #name,.comment-form #email,.comment-form #comment{
+    display: flex;
+    max-width: 250px;
 }
 .blog-comments{
      text-align: left;
+     margin-top: 20px;
 }
 .posted-comment{
     padding: 10px;
@@ -416,9 +421,6 @@ hr{
     margin-bottom: 10px;
 }
 .contact-form{
-    margin: 0 auto;
-}
-form{
     max-width: 350px;
     background-color: #f3f3f3;
     padding: 25px;
@@ -428,7 +430,7 @@ form{
     color: tomato;
     display: none;
 }
-form > div{
+form div{
     margin-bottom: 10px;
 }
 .contact #fullName,.contact #email,.contact #subject, .contact #message{

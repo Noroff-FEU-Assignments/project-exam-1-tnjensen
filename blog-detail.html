@@ -66,9 +66,9 @@
         <div>
           <label>
             Name
-            <input type="text" name="name" id="name" placeholder="Full Name" />
+            <input type="text" name="name" id="fullName" placeholder="Full Name" />
           </label>
-          <div class="form-error" id="name-error">Please enter your full name</div>
+          <div class="form-error" id="fullName-error">Please enter your full name</div>
         </div>  
         <div>
           <label>
@@ -78,9 +78,10 @@
           <div class="form-error" id="email-error">Please enter a valid email address</div>
         </div>
         <div>
-          <label for="comment">Message</label>
-            <textarea cols="30" rows="5" id="comment" name="comment">
+          <label for="comment">Message
+            <textarea id="comment" name="comment">
             </textarea>
+          </label>
             <div class="form-error" id="comment-error">Please enter a comment, minimum 5 characters</div>
         </div>
         <div>
@@ -88,35 +89,6 @@
         </div>
       </form>
     </div>
-     <!-- <div class="comment-form">
-       <h3>Leave a comment</h3>
-     <form id="commentForm" method="post">
-      <input type="hidden" id="postId" value="{POST_ID}" />
-      <div>
-        <label>
-          Name
-          <input type="text" name="name" id="name" placeholder="Name" />
-        </label>
-        <div class="form-error" id="name-error">Please enter your full name</div>
-      </div>  
-      <div>
-        <label>
-          Email
-          <input type="text" name="email" id="email" placeholder="Email" />
-        </label>
-        <div class="form-error" id="email-error">Please enter a valid email address</div>
-      </div>
-      <div>
-        <label for="comment">Comment</label>
-          <textarea cols="30" rows="5" name="comment" id="comment" name="comment">
-          </textarea>
-          <div class="form-error" id="comment-error">Please enter a comment, minimum 5 characters</div>
-      </div>
-      <div>
-        <input type="submit" name="submit" id="submit" value="Post comment" />
-      </div>
-    </form>
-  </div> -->
   <div class="blog-comments">
     <h3>Comments</h3>
   </div>

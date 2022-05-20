@@ -8,13 +8,13 @@ const postId = params.get("id");
 const modal = document.querySelector('.modal');
 const modalContent = document.querySelector('.modal-content');
 const menuButton = document.querySelector('.menu-btn');
-const fullName = document.querySelector('#name');
+const fullName = document.querySelector('#fullName');
 const email = document.querySelector('#email');
 const comment = document.querySelector('#comment');
 const postComment = document.querySelector('#submit');
 const blogComment = document.querySelector('.blog-comments');
 const form = document.querySelector('#commentForm');
-const fullNameError = document.querySelector('#name-error');
+const fullNameError = document.querySelector('#fullName-error');
 const emailError = document.querySelector('#email-error');
 const commentError = document.querySelector('#comment-error');
 

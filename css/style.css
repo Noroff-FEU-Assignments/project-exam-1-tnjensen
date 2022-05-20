@@ -335,24 +335,49 @@ a.active{
 .modal-content img{
     width: 100%;
 }
-#commentForm{
+#contactForm, #commentForm{
     max-width: 300px;
     background-color: #f3f3f3;
-    padding: 25px;
-    margin: auto;
-    
+    padding: 10px 25px;
+    margin: 0 auto;
 }
 .comment-form h3{
+    text-align: center;
     margin-top: 60px;
 }
-
-.comment-form #name,.comment-form #email,.comment-form #comment{
+.form-error{
+    color: tomato;
+    display: none;
+}
+form div{
+    margin-bottom: 10px;
+}
+#fullName, #email, #subject, #message, #comment{
     display: flex;
-    max-width: 250px;
+    width: 100%;
+}
+#message, #comment{
+    min-height: 60px;
+}
+
+#submit{
+    padding: 5px 15px;
+    background-color: #168412;
+    color: #fffefe;
+    border: 1px solid #168412;
+    border-radius: 5px;
+}
+#submit:hover{
+    background-color: #fffefe;
+    color: #168412;
+    border: 1px solid #333;
 }
 .blog-comments{
      text-align: left;
      margin-top: 20px;
+}
+.blog-comments h3{
+    text-align: center;
 }
 .posted-comment{
     padding: 10px;
@@ -413,7 +438,7 @@ a.active{
     padding: 5px 0;
 }
 hr{
-    margin: 20px 0;
+    margin: 20px 0 0 0;
 }
 .contact .main-content{
     display: flex;
@@ -425,34 +450,9 @@ hr{
     margin-bottom: 10px;
 }
 .contact-form{
-    max-width: 350px;
-    background-color: #f3f3f3;
-    padding: 25px;
-    margin: 0 auto;
+    margin: auto;
 }
-.form-error{
-    color: tomato;
-    display: none;
-}
-form div{
-    margin-bottom: 10px;
-}
-.contact #fullName,.contact #email,.contact #subject, .contact #message{
-    display: flex;
-    width: 250px;
-}
-#submit{
-    padding: 5px 15px;
-    background-color: #168412;
-    color: #fffefe;
-    border: 1px solid #168412;
-    border-radius: 5px;
-}
-#submit:hover{
-    background-color: #fffefe;
-    color: #168412;
-    border: 1px solid #333;
-}
+
 footer{
     display: flex;
     justify-content: space-around;

@@ -40,8 +40,12 @@ header{
     align-items: center;
 }
 
-header h2{
+header h3{
     margin: 0;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 400;
 }
 h1{
     text-align: center;
@@ -61,11 +65,11 @@ h6{
 }
 .icon img{
     border-radius: 50%;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 .menu-btn{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     display: block;
     position: relative;
     right: -5px;
@@ -207,8 +211,8 @@ a.active{
 }
 .circle-icon{
     background-color: #60B1F8;
-    min-width: 50px;
-    height: 50px;
+    min-width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 .left{
@@ -220,13 +224,16 @@ a.active{
     right: 20px;
 }
 .fa-angle-left, .fa-angle-right{
-    padding: 10px;
+    /* padding: 10px; */
     position: relative;
-    top: -1px;
+    top: 6px;
     right: -10px;
 }
 .fa-angle-left{
-    left: 8px;
+    left: 13px;
+}
+.fa-angle-right{
+    right: -15px;
 }
 .fa-angle-left, .fa-angle-right{
     color: #fffefe;
@@ -478,11 +485,14 @@ footer{
         font-size: 1rem;
     }
     .icon img{
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
     }
     h1,h2,h3,h4,h5,h6{
-        font-size: 1.7rem;
+        font-size: 1.5rem;
+    }
+    header h3{
+        font-size: 1.5rem;
     }
     .menu-btn{
         right: 0;
@@ -490,6 +500,9 @@ footer{
     }
     .latest-posts{
         margin: auto;
+    }
+    .fa-angle-left, .fa-angle-right{
+        top: 2px;
     }
     .modal-content img{
         width: 100%;
@@ -512,12 +525,12 @@ footer{
     h1,h2,h3,h4,h5,h6{
         font-size: 1.7rem;
     }
-    header h1{
-        margin-left: 20px;
+    header h3{
+        font-size: 1.8rem;
     }
     .icon img{
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
     }
     .nav-menu ul{
         display: inline-flex;
@@ -540,18 +553,18 @@ footer{
     }
     .circle-icon{
         background-color: #60B1F8;
-        height: 60px;
-        min-width: 60px;
+        height: 50px;
+        min-width: 50px;
         border-radius: 50%;
     }
     .fa-angle-left, .fa-angle-right{
        position: relative;
-       top: 0;
-       left: 10px;
+       top: 2px;
+       left: 15px;
        font-size: 2.5em;
     }
     .fa-angle-right{
-        left: 15px;
+        left: 20px;
     }
     .left{
         left: 150px;
@@ -607,7 +620,6 @@ footer{
         top: 150px;
         right: 10px;
     }
-    
     .sidebar{
         max-width: 15%;
     }

@@ -350,6 +350,9 @@ a.active{
     padding: 10px 25px;
     margin: 0 auto;
 }
+.phone,.email{
+    font-weight: bold;
+}
 .comment-form h3{
     text-align: center;
     margin-top: 60px;

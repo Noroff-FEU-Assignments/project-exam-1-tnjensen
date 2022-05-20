@@ -65,11 +65,12 @@ h6{
 }
 .icon img{
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
 }
+
 .menu-btn{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     display: block;
     position: relative;
     right: -5px;
@@ -482,10 +483,6 @@ footer{
 @media screen and (min-width: 500px){
     body{
         font-size: 1rem;
-    }
-    .icon img{
-        height: 40px;
-        width: 40px;
     }
     h1,h2,h3,h4,h5,h6{
         font-size: 1.5rem;

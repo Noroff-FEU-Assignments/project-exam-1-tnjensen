@@ -39,6 +39,10 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+
+header h1{
+    margin: 0;
+}
 h1{
     text-align: center;
     margin-top: 10px;
@@ -240,7 +244,7 @@ a.active{
     flex-direction: column;
     margin-top: 10px;
     padding: 10px;
-    border: 2px solid #333;
+    border: 1px solid #333;
     position: relative;
     max-width: 75%;
 }
@@ -289,7 +293,7 @@ a.active{
 }
 .blog-post-detail{
     padding: 10px;
-    border: 2px solid #333;
+    border: 1px solid #333;
     max-width: 70%;
     margin: 0 auto;
     margin-top: 20px;

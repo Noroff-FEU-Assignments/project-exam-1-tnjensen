@@ -495,6 +495,9 @@ footer{
         right: 0;
         font-size: 1.7rem;
     }
+    .nav-menu li{
+        font-size: .9rem;
+    }
     .latest-posts{
         margin: auto;
     }
@@ -606,8 +609,7 @@ footer{
         flex-direction: row;
     }
     .contact-form{
-        margin-top: 0;
-        
+        margin-top: 0;    
     }
 }
 @media screen and (min-width: 1160px){

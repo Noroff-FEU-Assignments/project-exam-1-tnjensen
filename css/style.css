@@ -605,6 +605,10 @@ footer{
     .contact .main-content{
         flex-direction: row;
     }
+    .contact-form{
+        margin-top: 0;
+        
+    }
 }
 @media screen and (min-width: 1160px){
     .left{

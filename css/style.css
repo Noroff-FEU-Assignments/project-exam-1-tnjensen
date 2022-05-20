@@ -558,7 +558,7 @@ footer{
     }
     .fa-angle-left, .fa-angle-right{
        position: relative;
-       top: 2px;
+       top: 3px;
        left: 15px;
        font-size: 2.5em;
     }

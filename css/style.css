@@ -282,7 +282,8 @@ a.active{
 }
 .blog-detail .cta-small{
     position: relative;
-    top: 50px;
+    top: 15px;
+    left: 0;
 }
 .more-posts a{
     text-decoration: none;

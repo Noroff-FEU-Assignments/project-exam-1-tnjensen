@@ -301,8 +301,7 @@ a.active{
 }
 .blog-post-detail{
     padding: 10px;
-    border: 1px solid #333;
-    max-width: 70%;
+    max-width: 80%;
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -310,7 +309,7 @@ a.active{
     text-align: center;
 }
 .blog-post-detail img{
-    max-width: 90%;
+    max-width: 100%;
     padding: 10px 0;
 }
 #imgLarge {

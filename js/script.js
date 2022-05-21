@@ -84,8 +84,8 @@ getLatestPosts();
 
 function createHTML(results){
     latestPosts.innerHTML += `<div class="latest-post">
-    <h4>${results[i].title.rendered}</h4>
     <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" />
+    <h3>${results[i].title.rendered}</h3>
     <p>${results[i].excerpt.rendered}</p>
     </div>`; 
 }

@@ -102,33 +102,27 @@
         <hr />
         <div class="contact-form">
         <h2>Get in touch</h2>
-        <form id="contactForm">
+        <form id="contactForm" method="post"">
+          <input type="hidden" id="postId" value="{POST_ID}" />
           <div>
-            <label>
-              Name
+            <label for="fullname">Name</label>
               <input type="text" name="fullName" id="fullName" placeholder="Full Name" />
-            </label>
             <div class="form-error" id="fullName-error">Please enter your full name</div>
           </div>  
           <div>
-            <label>
-              Email
+            <label for="email">Email</label>
               <input type="text" name="email" id="email" placeholder="Email" />
-            </label>
             <div class="form-error" id="email-error">Please enter a valid email address</div>
           </div>
           <div>
-            <label>
-              Subject
+            <label for="subject">Subject</label>
               <input type="text" name="subject" id="subject" placeholder="Subject" />
-            </label>
             <div class="form-error" id="subject-error">Please enter a subject, minimum 15 characters</div>
           </div>
           <div>
-            <label for="message">Message
+            <label for="message">Message</label>
               <textarea id="message" name="message">
               </textarea>
-            </label>
               <div class="form-error" id="message-error">Please enter a message, minimum 25 characters</div>
           </div>
           <div>

@@ -19,6 +19,7 @@ async function getPosts(){
         let results = await response.json();
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
+        console.log(results);
         
         for(i = 0; i < results.length; i++){ 
             let blogLink =`<a href="blog-detail.html?id=${results[i].id}" class="cta-small">Read more..</a>`; 

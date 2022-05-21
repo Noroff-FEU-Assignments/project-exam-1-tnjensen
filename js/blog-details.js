@@ -29,7 +29,8 @@ async function getPost(){
                         <img id="imgLarge" src="${result._embedded['wp:featuredmedia'][0].source_url}" 
                             alt="${result._embedded['wp:featuredmedia'][0].alt_text}" /></a>
                         <p>${result.content.rendered}</p>
-                        <div><a href="/blog.html" class="cta-small">Go back</a></div>`;
+                        <a href="/blog.html" class="cta-small">Go back</a>
+                        `;
                         
     }
     catch(error){

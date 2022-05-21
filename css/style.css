@@ -180,6 +180,7 @@ a.active{
 }
 .latest{
     display: flex;
+    position: relative;
 }
 .latest-posts{
     display: flex;
@@ -193,10 +194,13 @@ a.active{
     padding: 10px;
     padding-bottom: 40px;
     border: 1px solid #333;
-    max-width: 200px;
+    max-width: 80%;
 }
 .latest-post p, .latest-post h3{
     word-wrap: break-word;
+}
+.latest-post p{
+    display: none;
 }
 .latest-posts img{
     width: 100%;
@@ -217,12 +221,16 @@ a.active{
     border-radius: 50%;
 }
 .left{
-    position: fixed;
-    left: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
 }
 .right{
-    position: fixed;
-    right: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
 }
 .fa-angle-left, .fa-angle-right{
     position: relative;
@@ -270,9 +278,6 @@ a.active{
     background-color: #168412;
     border-radius: 5px;
     border: 1px solid #168412;
-    position: absolute;
-    bottom: 7px;
-    right: 10px;  
 }
 .cta-small:hover {
     background-color: #fffefe;
@@ -282,7 +287,6 @@ a.active{
 .blog-detail .cta-small{
     position: relative;
     top: 15px;
-    left: 0;
 }
 .more-posts a{
     text-decoration: none;
@@ -302,7 +306,7 @@ a.active{
 }
 .blog-post-detail{
     padding: 10px;
-    max-width: 80%;
+    max-width: 660px;
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -344,7 +348,7 @@ a.active{
     width: 100%;
 }
 #contactForm, #commentForm{
-    max-width: 300px;
+    width: 300px;
     background-color: #f3f3f3;
     padding: 10px 25px;
     margin: 0 auto;
@@ -370,7 +374,6 @@ form div{
 #message, #comment{
     min-height: 60px;
 }
-
 #submit{
     padding: 5px 15px;
     background-color: #168412;
@@ -456,15 +459,13 @@ hr{
     display: flex;
     flex-direction: column;
     padding: 20px 0;
+    justify-content: space-around;
 }
-.contact-location{
-    margin: auto;
+.contact-location, .contact-form{
+    
     margin-bottom: 10px;
+   
 }
-.contact-form{
-    margin: auto;
-}
-
 footer{
     display: flex;
     justify-content: space-around;
@@ -496,6 +497,12 @@ footer{
     }
     .latest-posts{
         margin: auto;
+    }
+    .latest-post{
+        max-width: 40%;
+    }
+    .latest-post p{
+        display: block;
     }
     .fa-angle-left, .fa-angle-right{
         top: 2px;
@@ -534,12 +541,9 @@ footer{
         max-width: 150px;
     }
     .latest-posts{
-        max-width: 1000px;
+        max-width: 1080px;
         flex-wrap: wrap;
         margin: auto;  
-    }
-    .latest-post{
-        max-width: 190px;
     }
     .circle-icon{
         background-color: #60B1F8;
@@ -557,7 +561,10 @@ footer{
         left: 20px;
     }
     .left{
-        left: 150px;
+        left: 20px;
+    }
+    .right{
+        right: 20px;
     }
     .blog h1{
         margin-bottom: 10px;
@@ -565,11 +572,9 @@ footer{
     .blog-post{
         max-width: 70%;
     }
-    .blog-post-detail img{
-        max-width: 80%;
-    }
     .blog-post-detail p{
-        margin: 15px;
+        max-width: 660px;
+        margin: 0 auto 15px auto;
     }
     .blog .sidebar{
         max-width: 20%;
@@ -602,19 +607,12 @@ footer{
         margin-top: 0;    
     }
 }
-@media screen and (min-width: 1160px){
-    .left{
-        position: relative;
-        top: 150px;
-        left: 10px;
-    }
-    .right{
-        position: relative;
-        top: 150px;
-        right: 10px;
-    }
+@media screen and (min-width: 1025px){
     .sidebar{
         max-width: 15%;
+    }
+    .latest-post{
+        max-width: 23%;
     }
     .about-item{
         margin: 40px 10px;

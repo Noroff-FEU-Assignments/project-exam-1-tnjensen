@@ -5,7 +5,9 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
-    background: url('../images/norway.jpg') fixed;
+    background-image: url('../images/norway.jpg');
+    background-size: cover;
+    background-attachment: fixed;
     font-size: .9rem;
 }
 h1,h2,h3,h4,h5,h6{
@@ -39,16 +41,16 @@ header{
     align-items: center;
 }
 
-header h3{
+.header-title{
     margin: 0;
     padding: 0 10px;
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-style: italic;
     font-weight: 400;
 }
 h1{
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 h2{
     font-style: italic;
@@ -193,7 +195,10 @@ a.active{
     flex: 1 100%;
     padding: 10px;
     padding-bottom: 40px;
-    border: 1px solid #333;
+   /*  border: 1px solid #e3e3e3; */
+    background-color: #fff;
+   /*  box-shadow: 0 0 25px #ddd; */
+    border-radius: 5px;
     max-width: 80%;
 }
 .latest-post p, .latest-post h3{
@@ -460,6 +465,7 @@ hr{
     flex-direction: column;
     padding: 20px 0;
     justify-content: space-around;
+    align-items: center;
 }
 .contact-location, .contact-form{
     

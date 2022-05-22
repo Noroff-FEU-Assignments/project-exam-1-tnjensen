@@ -289,9 +289,10 @@ a.active{
     color: #168412;
     border: 1px solid #333;
 }
-.blog-detail .cta-small{
+.blog-post .cta-small{
     position: relative;
-    top: 15px;
+    bottom: 15px;
+    float: right;
 }
 .more-posts a{
     text-decoration: none;

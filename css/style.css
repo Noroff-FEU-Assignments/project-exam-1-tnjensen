@@ -72,7 +72,7 @@ h6{
 }
 
 .menu-btn{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     display: block;
     position: relative;
     right: -5px;
@@ -106,6 +106,7 @@ h6{
 .nav-menu a{
     color: #fffefe;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 .nav-menu a:hover{
     text-decoration: underline;
@@ -480,6 +481,9 @@ footer{
     min-height: 10vh;
     align-items: center;
     color: #fffefe;
+}
+.footer-content, .footer-social{
+    font-size: 1.1rem;;
 }
 .footer-social i{
     margin-right: 10px;

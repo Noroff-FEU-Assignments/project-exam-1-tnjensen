@@ -7,7 +7,8 @@ const subject = document.querySelector('#subject');
 const subjectError = document.querySelector('#subject-error');
 const message = document.querySelector('#message');
 const messageError = document.querySelector('#message-error');
-const postUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/contact-form-7/v1/contact-forms/contactForm/feedback';
+const postUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts';
+const contacts = document.querySelector('.contacts');
 
 function validateForm(event){
     event.preventDefault();
@@ -118,9 +119,11 @@ function validateEmail(email){
 async function handleSubmit(e) {
    /*  e.preventDefault(); */
     const formData = new FormData(form).entries()
-    const response = await fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/contact-form-7/v1/contact-forms/1/feedback', {
+    const response = await fetch('https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(Object.fromEntries(formData))
     });
 
@@ -128,3 +131,22 @@ async function handleSubmit(e) {
     console.log(result)
 };
 
+async function getContacts(){
+    let response = await fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts');
+    let result = await response.json();
+    console.log(result);
+
+    createHTML(result);
+     
+}
+getContacts();
+function createHTML(results){
+    for(let i = 0; i < results.length; i++){
+        contacts.innerHTML += `<div class="contacts">
+        <h3>${results[i].title.rendered}</h3>
+        <p>${results[i].excerpt.rendered}</p>
+        <p>${results[i].content.rendered}</p>
+        </div>`; 
+    }
+    
+}

@@ -421,7 +421,7 @@ form div{
 }
 .about h1, .contact h1{
     text-align: center;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 .about-item{
     text-align: left;

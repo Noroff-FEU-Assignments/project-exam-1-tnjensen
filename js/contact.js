@@ -131,7 +131,7 @@ async function handleSubmit(e) {
     console.log(result)
 };
 
-async function getContacts(){
+/* async function getContacts(){
     let response = await fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts');
     let result = await response.json();
     console.log(result);
@@ -140,6 +140,7 @@ async function getContacts(){
      
 }
 getContacts();
+
 function createHTML(results){
     for(let i = 0; i < results.length; i++){
         contacts.innerHTML += `<div class="contacts">
@@ -148,5 +149,4 @@ function createHTML(results){
         <p>${results[i].content.rendered}</p>
         </div>`; 
     }
-    
-}
+} */

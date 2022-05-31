@@ -39,7 +39,6 @@ async function getPost(){
     }
     let imgLarge = document.getElementById('imgLarge');
     imgLarge.onclick = getFeaturedImageLarge;
-    /* let nonce = response.JSON() */
 }
 getPost();
 

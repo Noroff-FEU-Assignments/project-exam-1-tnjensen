@@ -1,14 +1,13 @@
-const form = document.querySelector('#contactForm');
-const fullName = document.querySelector('#fullName');
-const fullNameError = document.querySelector('#fullName-error');
-const email = document.querySelector('#email');
-const emailError = document.querySelector('#email-error');
-const subject = document.querySelector('#subject');
-const subjectError = document.querySelector('#subject-error');
-const message = document.querySelector('#message');
-const messageError = document.querySelector('#message-error');
-const postUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts';
-const contacts = document.querySelector('.contacts');
+const form = document.getElementById('contactForm');
+const fullName = document.getElementById('fullName');
+const fullNameError = document.getElementById('fullName-error');
+const email = document.getElementById('email');
+const emailError = document.getElementById('email-error');
+const subject = document.getElementById('subject');
+const subjectError = document.getElementById('subject-error');
+const message = document.getElementById('message');
+const messageError = document.getElementById('message-error');
+const postUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register';
 
 function validateForm(event){
     event.preventDefault();
@@ -54,7 +53,53 @@ function validateEmail(email){
     const patternMatches = regEx.test(email);
     return patternMatches; 
 }
+async function handleSubmit(evt) {
+    let data = JSON.stringify({
+        "username": fullName.value,
+        "email": email.value,
+        "password": "0000"
+    });
 
+    let postUrl = `https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register`;    
+    let result = await fetch(postUrl, {
+        method: 'post',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: data,
+    })
+    .then(result => result.json()) 
+    .then(result  => {
+        fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users?per_page=1')
+        .then(result => result.json())
+        .then(console.log(result.id))
+        postSubscriberData(result.id);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+async function postSubscriberData(id){
+    let data = JSON.stringify({
+        contact_Id: id,
+        contact_name: fullName.value,
+        contact_email: email.value,
+        contact_subject: subject.value,
+        contact_message: message.value
+    });
+     
+    let dataUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts';
+    let response = await fetch(dataUrl + id, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: data
+    })
+    .then(response => response.json())
+    .then(console.log(response))
+    .catch(error => console.error('Error:', error ));
+}
+/* getSubscribedUser(); */
 /* function submitFormData(event){
     event.preventDefault();
   
@@ -116,8 +161,8 @@ function validateEmail(email){
 } */
 /* const thisForm = document.getElementById('myForm'); */
 /* thisForm.addEventListener('submit',  */
-async function handleSubmit(e) {
-   /*  e.preventDefault(); */
+/* async function handleSubmit(e) {
+    e.preventDefault();
     const formData = new FormData(form).entries()
     const response = await fetch('https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts', {
         method: 'POST',
@@ -130,7 +175,7 @@ async function handleSubmit(e) {
     const result = await response.json();
     console.log(result)
 };
-
+ */
 /* async function getContacts(){
     let response = await fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts');
     let result = await response.json();

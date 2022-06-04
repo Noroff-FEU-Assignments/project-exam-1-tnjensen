@@ -7,7 +7,8 @@ const subject = document.getElementById('subject');
 const subjectError = document.getElementById('subject-error');
 const message = document.getElementById('message');
 const messageError = document.getElementById('message-error');
-const postUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register';
+/* const postUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register'; */
+const restRoot = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json';
 
 function validateForm(event){
     event.preventDefault();
@@ -54,144 +55,53 @@ function validateEmail(email){
     return patternMatches; 
 }
 async function handleSubmit(evt) {
-    let data = JSON.stringify({
-        "username": fullName.value,
-        "email": email.value,
-        "password": "0000"
-    });
-
-    let postUrl = `https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register`;    
-    let result = await fetch(postUrl, {
+    const formData = new FormData(form).entries();
+    let postUrl = `/wp/v2/contacts`;    
+    try{
+    let response = await fetch(restRoot + postUrl, {
         method: 'post',
         headers: {
-        'Content-Type': 'application/json'
-        },
-        body: data,
-    })
-    .then(result => result.json()) 
-    .then(result  => {
-        fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users?per_page=1')
-        .then(result => result.json())
-        .then(console.log(result.id))
-        postSubscriberData(result.id);
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-async function postSubscriberData(id){
-    let data = JSON.stringify({
-        contact_Id: id,
-        contact_name: fullName.value,
-        contact_email: email.value,
-        contact_subject: subject.value,
-        contact_message: message.value
-    });
-     
-    let dataUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts';
-    let response = await fetch(dataUrl + id, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: data
-    })
-    .then(response => response.json())
-    .then(console.log(response))
-    .catch(error => console.error('Error:', error ));
-}
-/* getSubscribedUser(); */
-/* function submitFormData(event){
-    event.preventDefault();
-  
-    const formElement = event.target,
-      { action, method } = formElement,
-      body = new FormData(formElement);
-  
-    fetch(action, {
-      method,
-      body
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        // Determine if the submission is not valid
-        if (isFormSubmissionError(response)) {
-          // Handle the case when there are validation errors
-          console.log(response);
-          
-        }
-        // Handle the happy path
-      })
-      .catch((error) => {
-        // Handle the case when there's a problem with the request
-        console.log(error);
-        
-      });
-  }; */
-  /* async function handleSubmit(evt) {
-    evt.preventDefault();
-
-    const data = JSON.stringify({
-        post: postId,
-        author_name: fullName.value,
-        author_email: email.value,
-        subject: subject.value,
-        content: message.value,
-    });
-
-    let postUrl = `https://noroff.tnjensen.com/blogsite_exam1/wp-json/contact-form-7/v1/contact-forms/contactForm/feedback`;    
-    let response = await fetch(postUrl, {
-        method: 'post',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: data,
-    })
-    .then((response) => {
-    if (response.ok === true) {
-        // Submitted successfully!
-    }
-
-    return response.json();
-    })
-    .then((object) => {
-    // Comment submission failed.
-    // Output `object.message` to see the error message.
-    })
-    .catch(error => console.error('Error:', error));
-} */
-/* const thisForm = document.getElementById('myForm'); */
-/* thisForm.addEventListener('submit',  */
-/* async function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(form).entries()
-    const response = await fetch('https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts', {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbm9yb2ZmLnRuamVuc2VuLmNvbVwvYmxvZ3NpdGVfZXhhbTEiLCJpYXQiOjE2NTQyODQ4NzcsIm5iZiI6MTY1NDI4NDg3NywiZXhwIjoxNjU0ODg5Njc3LCJkYXRhIjp7InVzZXIiOnsiaWQiOjEsImRldmljZSI6IiIsInBhc3MiOiJmZGY0ODJiNzI5NzNjZjg0ZjQxZWM5ZDZhZWY4ODhlZSJ9fX0.tgrdfb649zDeGvji7LkNA2Ut52uwAB29gvpT1dld2WA'
         },
         body: JSON.stringify(Object.fromEntries(formData))
     });
-
-    const result = await response.json();
-    console.log(result)
-};
- */
-/* async function getContacts(){
-    let response = await fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts');
     let result = await response.json();
     console.log(result);
-
-    createHTML(result);
-     
-}
-getContacts();
-
-function createHTML(results){
-    for(let i = 0; i < results.length; i++){
-        contacts.innerHTML += `<div class="contacts">
-        <h3>${results[i].title.rendered}</h3>
-        <p>${results[i].excerpt.rendered}</p>
-        <p>${results[i].content.rendered}</p>
-        </div>`; 
     }
+    catch(error){
+        console.log('Error:', error)
+    }
+}
+/* let token = sessionStorage.getItem('newToken');
+console.info("Token on load: ", token);
+
+function getToken( username, password ) {
+ 
+    let restURL = `${restRoot}/jwt-auth/v1/token`;
+
+    // The POST request to get the token.
+    const response = fetch( restURL, {
+        method: 'POST',
+        body: JSON.stringify( {
+            'username': username,
+            'password': password
+        } ),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then( response => response.json() )
+    .then( response => {
+        // If we get a token in response (username and password match).
+        if ( response.token ) {
+            // Toggle various things on and off.
+            console.log( 'getToken: ', response.token );
+            sessionStorage.setItem('newToken',response.token);
+        }
+    })
+    .catch( ( error ) => {
+        console.error( 'getToken error: ', error );
+    });
+ 
 } */

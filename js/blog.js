@@ -1,10 +1,16 @@
 const blogPosts = document.querySelector('.blog-posts');
 const links = document.querySelectorAll('nav a:not(.sidebar)');
-const url = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
+const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
+const corsEnabledUrl = "https://noroffcors.herokuapp.com/";
 const loader = document.querySelector('.loader');
 const moreUrl = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed&page=2';
 const menuButton = document.querySelector('.menu-btn');
 const morePosts = document.querySelector('.more-posts');
+const form = document.getElementById('signUpForm');
+const fullName = document.getElementById('fullName');
+const fullNameError = document.getElementById('fullName-error');
+const email = document.getElementById('email');
+const emailError = document.getElementById('email-error');
 
 for(let i = 0; i < document.links.length;i++){
     console.log(document.links[i])
@@ -75,3 +81,75 @@ window.addEventListener('mouseup', function(event){
         menuButton.classList.remove('visible');
     }
 })
+
+function validateForm(event){
+    event.preventDefault();
+
+    if(checkLength(fullName.value, 0)){
+        fullNameError.style.display = 'none';
+    }
+    else{
+        fullNameError.style.display = 'block';
+    }
+    if(validateEmail(email.value)){
+        emailError.style.display = 'none';
+    }
+    else{
+        emailError.style.display = 'block';
+    }
+  /*   if(checkLength(subject.value, 15)){
+        subjectError.style.display = 'none';
+    }
+    else{
+        subjectError.style.display = 'block';
+    }
+    if(checkLength(message.value, 25)){
+        messageError.style.display = 'none';
+    }
+    else{
+        messageError.style.display = 'block';
+    } */
+    handleSubmit();
+}
+form.addEventListener("submit", validateForm);
+
+function checkLength(value, len){
+    if(value.trim().length > len){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function validateEmail(email){
+    const regEx = /^.+@.+$/;
+    const patternMatches = regEx.test(email);
+    return patternMatches; 
+}
+async function handleSubmit(evt) {
+    let data = JSON.stringify({
+        "username": fullName.value,
+        "email": email.value,
+        "password": "0000"
+    });
+
+    let postUrl = `https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register`;    
+    let result = await fetch(postUrl, {
+        method: 'post',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: data,
+    })
+    .then(result => result.json()) 
+    .then(result  => {
+        fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users?per_page=1')
+        .then(result => result.json())
+        .then(console.log(result.id))
+        alert('Subscriber registered successfully.');
+        fullName.value = "";
+        email.value = "";
+        return result.id;
+    })
+    .catch(error => console.error('Error:', error));
+}

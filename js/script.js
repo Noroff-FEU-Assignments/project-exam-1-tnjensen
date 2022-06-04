@@ -1,6 +1,7 @@
 const links = document.querySelectorAll('nav a:not(.sidebar)');
 const latestPosts = document.querySelector('.latest-posts');
-const url = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
+const url = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/posts?_embed';
+const corsEnabledUrl ="https://noroffcors.herokuapp.com/";
 const loader = document.querySelector('.loader');
 const leftAngle = document.querySelector('.fa-angle-left');
 const rightAngle = document.querySelector('.fa-angle-right');

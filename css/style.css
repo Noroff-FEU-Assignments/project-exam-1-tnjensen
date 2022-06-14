@@ -228,24 +228,24 @@ a.active{
     border-radius: 50%;
 }
 .left{
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     left: 0;
 }
 .right{
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     right: 0;
 }
 .fa-angle-left, .fa-angle-right{
     position: relative;
-    top: 6px;
+    top: 4px;
     right: -10px;
 }
 .fa-angle-left{
-    left: 13px;
+    left: 15px;
 }
 .fa-angle-right{
     right: -15px;
@@ -302,7 +302,7 @@ a.active{
     background-color: #168412;
     color: #fffefe;
     border-radius: 5px;
-    position: relative;
+    /* position: relative; */
     max-width: 150px;
     margin-bottom: 10px;
 }
@@ -462,7 +462,7 @@ form div{
     padding: 5px 0;
 }
 hr{
-    margin: 20px 0 0 0;
+    margin: 10px 0;
 }
 .contact .main-content{
     display: flex;
@@ -472,9 +472,16 @@ hr{
     align-items: center;
 }
 .contact-location, .contact-form{
-    
     margin-bottom: 10px;
-   
+}
+.contact-form-details{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    max-width: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);  
 }
 footer{
     display: flex;
@@ -519,9 +526,6 @@ footer{
     }
     .latest-post p{
         display: block;
-    }
-    .fa-angle-left, .fa-angle-right{
-        top: 2px;
     }
     .modal-content img{
         width: 100%;
@@ -568,8 +572,6 @@ footer{
         border-radius: 50%;
     }
     .fa-angle-left, .fa-angle-right{
-       position: relative;
-       left: 15px;
        font-size: 2.5em;
     }
     .fa-angle-right{
@@ -590,9 +592,9 @@ footer{
     .blog .sidebar{
         max-width: 20%;
     }
-    .blog-detail .more-posts{
+    .more-posts a{
+        position: relative;
         left: 15%;
-        margin-top: 15px;
     }
     .modal-content{
         width: 100%;
@@ -620,8 +622,7 @@ footer{
     .contact-form-details{
         display: flex;
         flex-direction: column;
-        max-width: 30%;
-        transform: translate(150%);
+        max-width: 250px;
     }
 }
 @media screen and (min-width: 1025px){
@@ -630,6 +631,16 @@ footer{
     }
     .latest-post{
         max-width: 23%;
+    }
+    .right{
+        position: absolute;
+        top: 50%;
+        right: 0;
+    }
+    .left{
+        position: absolute;
+        top: 50%;
+        left:0;
     }
     .about-item{
         margin: 40px 10px;

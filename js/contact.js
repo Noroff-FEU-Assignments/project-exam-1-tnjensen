@@ -58,7 +58,6 @@ function validateEmail(email){
 }
 
 async function handleSubmit(event) {
-    /* event.preventDefault(); */
   
     /* const formData = new FormData(form).entries(); */
     let data = JSON.stringify({

@@ -97,18 +97,7 @@ function validateForm(event){
     else{
         emailError.style.display = 'block';
     }
-  /*   if(checkLength(subject.value, 15)){
-        subjectError.style.display = 'none';
-    }
-    else{
-        subjectError.style.display = 'block';
-    }
-    if(checkLength(message.value, 25)){
-        messageError.style.display = 'none';
-    }
-    else{
-        messageError.style.display = 'block';
-    } */
+    
     handleSubmit();
 }
 form.addEventListener("submit", validateForm);
@@ -145,11 +134,11 @@ async function handleSubmit(evt) {
     .then(result  => {
         fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users?per_page=1')
         .then(result => result.json())
-        .then(console.log(result.id))
-        alert('Subscriber registered successfully.');
-        fullName.value = "";
-        email.value = "";
-        return result.id;
+        if(result.id){
+            alert('Subscriber registered successfully.');
+            fullName.value = "";
+            email.value = "";
+        }
     })
     .catch(error => console.error('Error:', error));
 }

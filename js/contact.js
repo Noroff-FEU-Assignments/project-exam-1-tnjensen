@@ -7,8 +7,10 @@ const subject = document.getElementById('subject');
 const subjectError = document.getElementById('subject-error');
 const message = document.getElementById('message');
 const messageError = document.getElementById('message-error');
-/* const postUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register'; */
-const restRoot = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json';
+const restRoot = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/';
+const contactDetails = document.querySelector('.contact-form-details');
+const username = "tnjensen";
+const password = "!_yZemse224";
 
 function validateForm(event){
     event.preventDefault();
@@ -54,54 +56,57 @@ function validateEmail(email){
     const patternMatches = regEx.test(email);
     return patternMatches; 
 }
-async function handleSubmit(evt) {
-    const formData = new FormData(form).entries();
-    let postUrl = `/wp/v2/contacts`;    
-    try{
-    let response = await fetch(restRoot + postUrl, {
+
+async function handleSubmit(event) {
+    /* event.preventDefault(); */
+  
+    /* const formData = new FormData(form).entries(); */
+    let data = JSON.stringify({
+        "title": fullName.value,
+        "excerpt": subject.value,
+        "content": message.value,
+        'status': 'publish',
+        'meta': {
+            'email': email.value,
+        }
+    });
+
+    let postUrl = restRoot + 'wp/v2/contacts';   
+    let response = await fetch(postUrl, {
         method: 'post',
         headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbm9yb2ZmLnRuamVuc2VuLmNvbVwvYmxvZ3NpdGVfZXhhbTEiLCJpYXQiOjE2NTQyODQ4NzcsIm5iZiI6MTY1NDI4NDg3NywiZXhwIjoxNjU0ODg5Njc3LCJkYXRhIjp7InVzZXIiOnsiaWQiOjEsImRldmljZSI6IiIsInBhc3MiOiJmZGY0ODJiNzI5NzNjZjg0ZjQxZWM5ZDZhZWY4ODhlZSJ9fX0.tgrdfb649zDeGvji7LkNA2Ut52uwAB29gvpT1dld2WA'
+            "Content-type": "application/json",
+        'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbm9yb2ZmLnRuamVuc2VuLmNvbVwvYmxvZ3NpdGVfZXhhbTEiLCJpYXQiOjE2NTQ5MzYxMDMsIm5iZiI6MTY1NDkzNjEwMywiZXhwIjoxNjU1NTQwOTAzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjEsImRldmljZSI6IiIsInBhc3MiOiJmZGY0ODJiNzI5NzNjZjg0ZjQxZWM5ZDZhZWY4ODhlZSJ9fX0.CvJMyYhx25r40VGMf-Sxn5rVKLL9eWVRSFsIsVZ7CsM'
         },
-        body: JSON.stringify(Object.fromEntries(formData))
-    });
-    let result = await response.json();
-    console.log(result);
+       body: data,  
+       /*  body: JSON.stringify(Object.fromEntries(formData)) */
+    })
+    .then(response => response.json())
+    .catch(error => console.log("Error: ", error))
+    
+}
+
+async function getContacts(){
+    try{
+        let contactUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/contacts/';
+        let response = await fetch(contactUrl + '?id=' + postId);
+        let result = await response.json();
+        loader.innerHTML = "";
+        loader.classList.remove('loading-indicator');
+        
+        for(let i = 0; i < result.length; i++){
+            contactDetails.innerHTML += `<div class="posted-contact">
+            <p>Posted by: <b>${result[i].title.rendered}</b></p>
+            <p>Email: <b>${result[i].meta.email}</b></p>
+            <p>Subject: <b>${result[i].excerpt.rendered}</b></p>
+            <p>Message: <b>${result[i].content.rendered}</b></p>
+            <hr>
+            </div>`;
+        }
     }
     catch(error){
-        console.log('Error:', error)
+        contactDetails.innerHTML = `Error: ` + error;
     }
+    
 }
-/* let token = sessionStorage.getItem('newToken');
-console.info("Token on load: ", token);
-
-function getToken( username, password ) {
- 
-    let restURL = `${restRoot}/jwt-auth/v1/token`;
-
-    // The POST request to get the token.
-    const response = fetch( restURL, {
-        method: 'POST',
-        body: JSON.stringify( {
-            'username': username,
-            'password': password
-        } ),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then( response => response.json() )
-    .then( response => {
-        // If we get a token in response (username and password match).
-        if ( response.token ) {
-            // Toggle various things on and off.
-            console.log( 'getToken: ', response.token );
-            sessionStorage.setItem('newToken',response.token);
-        }
-    })
-    .catch( ( error ) => {
-        console.error( 'getToken error: ', error );
-    });
- 
-} */
+getContacts();

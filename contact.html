@@ -19,6 +19,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <!-- Hotjar Tracking Code for https://gorgeous-travesseiro-0d3bbb.netlify.app/ -->
     <script>
@@ -69,6 +70,7 @@
           <p>Email: <span class="email">wildlifeblog@mail.com</span></p>
         </div>
         <div class="main-content">
+          <div class="loader loading-indicator"></div>
           <div class="contact-location">
           <h2>Find our offices</h2>
             <div
@@ -103,7 +105,7 @@
         </div>
         <div class="contact-form">
         <h2>Get in touch</h2>
-        <form id="contactForm" method="post"">
+        <form id="contactForm" action="https://noroff.tnjensen.com/blogsite_exam1/wp-json/contact-form-7/v1/contact-forms/237/feedback" method="post"">
           <input type="hidden" id="postId" value="{POST_ID}" />
           <div>
             <label for="fullname">Name</label>
@@ -131,7 +133,9 @@
           </div>
         </form>
       </div>
-      <div class="contacts"></div>
+      </div>
+      <div class="contact-form-details">
+        <h3>Contact Form Details</h3>
       </div>
       </div>
     </div>

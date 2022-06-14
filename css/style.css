@@ -617,6 +617,12 @@ footer{
     .contact-form{
         margin-top: 0;    
     }
+    .contact-form-details{
+        display: flex;
+        flex-direction: column;
+        max-width: 30%;
+        transform: translate(150%);
+    }
 }
 @media screen and (min-width: 1025px){
     .sidebar{

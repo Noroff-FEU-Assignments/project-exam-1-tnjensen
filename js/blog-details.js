@@ -99,9 +99,10 @@ async function handleSubmit(evt) {
 
 async function getComment(){
     try{
-        let commentUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments/';
+        let commentUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments?_embed';
         let response = await fetch(commentUrl + '?id=' + postId);
         let result = await response.json();
+        console.log(result);
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
         

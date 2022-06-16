@@ -28,12 +28,9 @@ async function getPosts(){
         let response = await fetch(url);
         let results = await response.json();
         document.querySelector('.select-filter').addEventListener('change', function(){
-            /* console.log('changed'); */
             let filteredPosts = results.filter(function(e){
                 return e.postmeta.Type[0] === selectFilter.value;
             });
-            /* results = filteredPosts; */
-            console.log(results);
             
             blogPosts.innerHTML = "";
             if(selectFilter.value === ""){

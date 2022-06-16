@@ -12,6 +12,7 @@ const fullName = document.querySelector('#fullName');
 const email = document.querySelector('#email');
 const comment = document.querySelector('#comment');
 const postComment = document.querySelector('#submit');
+const blogHeader = document.querySelector('.blog-comments h3');
 const blogComment = document.querySelector('.blog-comments');
 const form = document.querySelector('#commentForm');
 const fullNameError = document.querySelector('#fullName-error');
@@ -83,40 +84,37 @@ async function handleSubmit(evt) {
         'Content-Type': 'application/json'
         },
         body: data,
-        });
-    /* let result = response.json(); */
-
+    });
     }
     catch(error){
-     console.error('Error:', error);
-    }
+        console.error('Error:', error)
+    };
 }
 
 async function getComment(){
     try{
-        let commentUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments';
+        let commentUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments?_embed';
         let response = await fetch(commentUrl + '?post=' + postId);
-        let result = await response.json();
-        
+        let results = await response.json();
+        console.log(results);
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
         
-        if( result[0].post == postId){
-            blogComment.innerHTML += `<div class="blog-comments">
-            <h3>Comments</h3>
-            <div class="posted-comment">
-            <p>Posted by: <b>${result[0].author_name}</b></p>
-            <p>Date: <b>${result[0].date}</b></p>
-            <p>Comment: <b>${result[0].content.rendered}</b></p>
-            <hr>
-            </div>
-            </div>`;
+        for(i= 0; i < results.length; i++){
+            if(results[i].post == postId){
+                blogHeader.style.display = "block";
+                blogComment.innerHTML += `<div class="posted-comment">
+                <p>Posted by: <b>${results[i].author_name}</b></p>
+                <p>Date: <b>${results[i].date}</b></p>
+                <p>Comment: <b>${results[i].content.rendered}</b></p>
+                <hr>
+                </div>`;
+            }
         }
-    }
+    } 
     catch(error){
-        console.log(`Error: ` + error);
+        blogComment.innerHTML = `Error: ` + error;
     }
-    
 }
 getComment();
 

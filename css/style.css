@@ -411,6 +411,7 @@ form div{
 }
 .blog-comments h3{
     text-align: center;
+    display: none;
    
 }
 .posted-comment{

@@ -11,6 +11,7 @@ const fullName = document.getElementById('fullName');
 const fullNameError = document.getElementById('fullName-error');
 const email = document.getElementById('email');
 const emailError = document.getElementById('email-error');
+const selectFilter = document.querySelector('.select-filter');
 
 for(let i = 0; i < document.links.length;i++){
     console.log(document.links[i])
@@ -20,32 +21,52 @@ for(let i = 0; i < document.links.length;i++){
 }
 
 async function getPosts(){
+    loader.innerHTML = "";
+    blogPosts.innerHTML = "";
+    loader.classList.remove('loading-indicator');
     try{
         let response = await fetch(url);
         let results = await response.json();
-        loader.innerHTML = "";
-        loader.classList.remove('loading-indicator');
-        console.log(results);
-        
-        for(i = 0; i < results.length; i++){ 
-            let blogLink =`<a href="blog-detail.html?id=${results[i].id}" class="cta-small">Read more..</a>`; 
-            blogPosts.innerHTML += `<div class="blog-post">
-                            <h2>${results[i].title.rendered}</h2>
-                            <a href="blog-detail.html?id=${results[i].id}"><img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" /></a>
-                            <p>${results[i].excerpt.rendered}</p>
-                            <p>${blogLink}</p>
-                            </div>`;
-            if(i === results.length - 1){
-                blogPosts.innerHTML += `<div class="more-posts"><a href="javascript:void(0)" onclick="getMorePosts()">Older posts <i class="fa fa-angle-down"></i></a></div>`;
+        document.querySelector('.select-filter').addEventListener('change', function(){
+            /* console.log('changed'); */
+            let filteredPosts = results.filter(function(e){
+                return e.postmeta.Type[0] === selectFilter.value;
+            });
+            /* results = filteredPosts; */
+            console.log(results);
+            
+            blogPosts.innerHTML = "";
+            if(selectFilter.value === ""){
+                getPosts(results);
             }
-        }    
+            createHTML(filteredPosts); 
+        })
+        createHTML(results);
     }
     catch(error){
         blogPosts.innerHTML = `Error: ` + error;
     }
-    
 }
 getPosts();
+
+function createHTML(results){
+    for(i = 0; i < results.length; i++){ 
+        let blogLink =`<a href="blog-detail.html?id=${results[i].id}" class="cta-small">Read more..</a>`; 
+        blogPosts.innerHTML += `<div class="blog-post">
+                        <h2>${results[i].title.rendered}</h2>
+                        <a href="blog-detail.html?id=${results[i].id}"><img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" /></a>
+                        <p>${results[i].excerpt.rendered}</p>
+                        <p><b>${results[i].postmeta.Type}</b></p>
+                        <p>${blogLink}</p>
+                        </div>`;
+        if(i === results.length - 1){
+            blogPosts.innerHTML += `<div class="more-posts"><a href="javascript:void(0)" onclick="getMorePosts()">Older posts <i class="fa fa-angle-down"></i></a></div>`;
+        }
+    }    
+       
+        
+        
+}
 
 async function getMorePosts(){
     const moreButton = document.querySelector('.more-posts a'); 
@@ -62,9 +83,9 @@ async function getMorePosts(){
                             <h2>${results[i].title.rendered}</h2>
                             <a href="blog-detail.html?id=${results[i].id}"><img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" /></a>
                             <p>${results[i].excerpt.rendered}</p>
+                            <p><b>${results[i].postmeta.Type}</b></p>
                             <p>${blogLink}</p>
                             </div>`;
-
         }    
     }
     catch(error){
@@ -141,4 +162,8 @@ async function handleSubmit(evt) {
         }
     })
     .catch(error => console.error('Error:', error));
+}
+
+function checkFilter(){
+    return blogPosts.type
 }

@@ -127,6 +127,14 @@ a.active{
     text-align: center;
     padding: 15px 0;
 }
+.options{
+    position: relative;
+    left: 10%;
+    padding: 10px 10px 10px 0;
+}
+.options select{
+    min-width: 100px;
+}
 .sidebar{
     max-width: 25%;
     float: left;

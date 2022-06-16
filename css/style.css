@@ -205,9 +205,7 @@ a.active{
     flex: 1 100%;
     padding: 10px;
     padding-bottom: 40px;
-   /*  border: 1px solid #e3e3e3; */
     background-color: #fff;
-   /*  box-shadow: 0 0 25px #ddd; */
     border-radius: 5px;
     max-width: 80%;
 }
@@ -647,18 +645,27 @@ footer{
         max-width: 250px;
     }
 }
-@media screen and (min-width: 1025px){
+@media screen and (min-width: 1300px){
     .sidebar{
         max-width: 15%;
     }
     .latest-post{
         max-width: 23%;
     }
+    .circle-icon{
+        background-color: #fffefe;
+    }
+    .fa-angle-left, .fa-angle-right{
+        color: #60B1F8;
+    }
     .right{
         right: 20px;
     }
     .left{
         left:20px;
+    }
+    .left:hover, .right:hover{
+        opacity: .8;
     }
     .about-item{
         margin: 40px 10px;

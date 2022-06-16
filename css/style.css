@@ -304,7 +304,8 @@ a.active{
 }
 .more-posts a{
     text-decoration: none;
-   
+    font-weight: 600;
+    letter-spacing: .1rem;
     color: #168412;
     border-radius: 5px;
     max-width: 150px;
@@ -314,6 +315,10 @@ a.active{
     background-color: #fffefe;
     color: #168412;
     text-decoration: underline;
+    opacity: .8;
+}
+.fa-angle-down{
+    font-size: 1.2rem;
 }
 .blog-post-detail{
     padding: 10px;

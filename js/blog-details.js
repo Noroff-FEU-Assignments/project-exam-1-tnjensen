@@ -76,47 +76,45 @@ async function handleSubmit(evt) {
     });
 
     let postUrl = `https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments`;    
+    try{
     let response = await fetch(postUrl, {
         method: 'post',
         headers: {
         'Content-Type': 'application/json'
         },
         body: data,
-    })
-    .then((response) => {
-    if (response.ok === true) {
-        // Submitted successfully!
-    }
+        });
+    /* let result = response.json(); */
 
-    return response.json();
-    })
-    .then((object) => {
-    // Comment submission failed.
-    // Output `object.message` to see the error message.
-    })
-    .catch(error => console.error('Error:', error));
+    }
+    catch(error){
+     console.error('Error:', error);
+    }
 }
 
 async function getComment(){
     try{
-        let commentUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments?_embed';
-        let response = await fetch(commentUrl + '?id=' + postId);
+        let commentUrl = 'https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments';
+        let response = await fetch(commentUrl + '?post=' + postId);
         let result = await response.json();
-        console.log(result);
+        
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
         
-        for(let i = 0; i < result.length; i++){
-            blogComment.innerHTML += `<div class="posted-comment">
-            <p>Posted by: <b>${result[i].author_name}</b></p>
-            <p>Date: <b>${result[i].date}</b></p>
-            <p>Comment: <b>${result[i].content.rendered}</b></p>
+        if( result[0].post == postId){
+            blogComment.innerHTML += `<div class="blog-comments">
+            <h3>Comments</h3>
+            <div class="posted-comment">
+            <p>Posted by: <b>${result[0].author_name}</b></p>
+            <p>Date: <b>${result[0].date}</b></p>
+            <p>Comment: <b>${result[0].content.rendered}</b></p>
             <hr>
+            </div>
             </div>`;
         }
     }
     catch(error){
-        blogComment.innerHTML = `Error: ` + error;
+        console.log(`Error: ` + error);
     }
     
 }

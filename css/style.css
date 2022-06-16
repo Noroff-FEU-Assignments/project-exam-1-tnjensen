@@ -312,10 +312,8 @@ a.active{
     margin-bottom: 10px;
 }
 .more-posts a:hover{
-    background-color: #fffefe;
     color: #168412;
     text-decoration: underline;
-    opacity: .8;
 }
 .fa-angle-down{
     font-size: 1.2rem;

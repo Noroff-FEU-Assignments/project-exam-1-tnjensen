@@ -18,24 +18,28 @@ function validateForm(event){
     }
     else{
         fullNameError.style.display = 'block';
+        return;
     }
     if(validateEmail(email.value)){
         emailError.style.display = 'none';
     }
     else{
         emailError.style.display = 'block';
+        return;
     }
     if(checkLength(subject.value, 15)){
         subjectError.style.display = 'none';
     }
     else{
         subjectError.style.display = 'block';
+        return;
     }
     if(checkLength(message.value, 25)){
         messageError.style.display = 'none';
     }
     else{
         messageError.style.display = 'block';
+        return;
     }
     handleSubmit();
 }
@@ -79,8 +83,7 @@ async function handleSubmit(event) {
        /*  body: JSON.stringify(Object.fromEntries(formData)) */
     })
     .then(response => response.json())
-    .catch(error => console.log("Error: ", error))
-    
+    .ctch(error => console.log("Error: ", error))
 }
 
 async function getContacts(){

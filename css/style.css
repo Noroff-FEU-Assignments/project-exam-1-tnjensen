@@ -392,7 +392,8 @@ form div{
     min-height: 60px;
 }
 #submit{
-    padding: 5px 15px;
+    padding: 5px 10px;
+    font-size: 1rem;
     background-color: #168412;
     color: #fffefe;
     border: 1px solid #168412;

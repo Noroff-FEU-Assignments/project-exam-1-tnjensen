@@ -61,7 +61,6 @@ function validateEmail(email){
 
 async function handleSubmit(event) {
   
-    /* const formData = new FormData(form).entries(); */
     let data = JSON.stringify({
         "title": fullName.value,
         "excerpt": subject.value,
@@ -80,7 +79,6 @@ async function handleSubmit(event) {
         'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbm9yb2ZmLnRuamVuc2VuLmNvbVwvYmxvZ3NpdGVfZXhhbTEiLCJpYXQiOjE2NTQ5MzYxMDMsIm5iZiI6MTY1NDkzNjEwMywiZXhwIjoxNjU1NTQwOTAzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjEsImRldmljZSI6IiIsInBhc3MiOiJmZGY0ODJiNzI5NzNjZjg0ZjQxZWM5ZDZhZWY4ODhlZSJ9fX0.CvJMyYhx25r40VGMf-Sxn5rVKLL9eWVRSFsIsVZ7CsM'
         },
        body: data,  
-       /*  body: JSON.stringify(Object.fromEntries(formData)) */
     })
     .then(response => response.json())
     .ctch(error => console.log("Error: ", error))

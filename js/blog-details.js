@@ -25,7 +25,6 @@ async function getPost(){
         let result = await response.json();
         loader.innerHTML = "";
         loader.classList.remove('loading-indicator');
-        /* console.log(result); */
         document.title = `${result.title.rendered}`;
         blogPost.innerHTML = `<h1>${result.title.rendered}</h1>
                         <img id="imgLarge" src="${result._embedded['wp:featuredmedia'][0].source_url}" 

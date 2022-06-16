@@ -59,10 +59,7 @@ function createHTML(results){
         if(i === results.length - 1){
             blogPosts.innerHTML += `<div class="more-posts"><a href="javascript:void(0)" onclick="getMorePosts()">Older posts <i class="fa fa-angle-down"></i></a></div>`;
         }
-    }    
-       
-        
-        
+    }        
 }
 
 async function getMorePosts(){
@@ -159,8 +156,4 @@ async function handleSubmit(evt) {
         }
     })
     .catch(error => console.error('Error:', error));
-}
-
-function checkFilter(){
-    return blogPosts.type
 }

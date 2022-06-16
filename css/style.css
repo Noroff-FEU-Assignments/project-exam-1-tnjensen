@@ -129,7 +129,7 @@ a.active{
 }
 .options{
     position: relative;
-    left: 10%;
+    left: 0;
     padding: 10px 10px 10px 0;
 }
 .options select{
@@ -598,6 +598,10 @@ footer{
     .right{
         right: 20px;
     }
+    .more-posts a{
+        position: relative;
+        left: 15%;
+    }
     .blog h1{
         margin-bottom: 10px;
     }
@@ -607,9 +611,13 @@ footer{
     .blog .sidebar{
         max-width: 20%;
     }
-    .more-posts a{
+    .options{
         position: relative;
-        left: 15%;
+        left: 40%;
+        padding: 0 10px 10px 0;
+    }
+    .options select{
+        min-width: 100px;
     }
     .modal-content{
         width: 100%;

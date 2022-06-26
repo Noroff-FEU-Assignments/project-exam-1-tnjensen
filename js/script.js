@@ -32,7 +32,6 @@ document.onload = detectViewport();
     
 }; */
 
-console.log("Per page: ", postsPerPage);
 async function getLatestPosts(){
     try{
         let response = await fetch(url);
@@ -44,68 +43,80 @@ async function getLatestPosts(){
         leftAngle.style.display = "none";
         circleLeft.style.display = "none";
         console.log("Total posts: ", results);
+        getMaxPages(results);
         
-        maxPages = results.length/postsPerPage;
-        if(results.length % postsPerPage != 0){
-            maxPages += 1;
-        }
-        console.log("Maxpages: ", Math.trunc(maxPages));
         console.log("Posts per page: ", postsPerPage); 
     
         for(i = 0; i < postsPerPage; i++){
-            createHTML(results);
+            createHTML(results); 
         }   
         circleRight.addEventListener('click', function(){
             latestPosts.innerHTML = "";
-            counter++;
-            postPage = counter + 1;
-            leftAngle.style.display = "none";
-            circleLeft.style.display = "none";
-            console.log("Counter: ", counter);
-            pageResult = postResult.slice(postsPerPage);
-            console.log("Page result: ", pageResult);
-            let index = postResult.indexOf(pageResult[0]);
-            console.log("Index:", index);
-            console.log("Elements left: ", pageResult.length);
-            for(i = index; i < postsPerPage + index; i++){
-                if( pageResult.length == index){
-                    rightAngle.style.display = "none";
-                    circleRight.style.display = "none";
-                    leftAngle.style.display = "block";
-                    circleLeft.style.display = "block";
-                    
+            if(maxPages == postPage){
+                counter = 0;
+                for(i = 0; i < postsPerPage; i++){
+                    createHTML(results);
+                    postPage = 1; 
                 }   
-                else if(!postResult[i]){
-                    rightAngle.style.display = "none";
-                    circleRight.style.display = "none";
-                    leftAngle.style.display = "block";
-                    circleLeft.style.display = "block";
-                    break;
+            }else{
+                counter++;
+                postPage = counter + 1;
+                if(postResult.length == postsPerPage){
+                    postResult = results.reverse();
+                    console.log("Post result: ", postResult.length);
                 }
-                createHTML(postResult);
-                console.log("I: ", i);       
-               
-            }   
+                leftAngle.style.display = "none";
+                circleLeft.style.display = "none";
+                console.log("Counter: ", counter);
+                console.log("Page: ", postPage);
+                pageResult = postResult.slice(postsPerPage);
+                console.log("Page result: ", pageResult);
+                let index = postResult.indexOf(pageResult[0]);
+                console.log("Index:", index);
+                console.log("Elements left: ", pageResult.length);
+                for(i = index; i < postsPerPage + index; i++){
+                    if(!postResult[i]){
+                       /*  rightAngle.style.display = "none";
+                        circleRight.style.display = "none"; */
+                        /* leftAngle.style.display = "block";
+                        circleLeft.style.display = "block"; */
+                        console.log("Posts reversed: ", postResult);
+                        console.log("Post page: ", postPage);
+                        console.log("Maxpages: ", maxPages);
+                        pageResult = results;
+                        index = postResult.indexOf(postResult[0]);
+                        console.log("Index: ", index);
+                        console.log("Page result: ", pageResult);
+                        
+                        console.log("I: ", postResult);
+                        break;
+                    }   
+                    
+                    createHTML(postResult);
+                           
+                   
+                }   
+                
+                    postResult = pageResult;
+                    console.log("Page: ", postPage);
+                    console.log("Post result: ", postResult);
+                
+            }
             
-            postResult = pageResult;
-            console.log("Page: ", postPage);
-            console.log("Post result: ", postResult.length);
+           
             
-        })   
+        });
         circleLeft.addEventListener('click', function(){
             latestPosts.innerHTML = "";
             counter--;
             postPage = counter + 1;
             console.log("Post result: ", postResult);
-            
-            if(postResult.length <= postsPerPage){
+            if(postResult.length < postsPerPage){
                 postResult = results;
+                console.log("Post result: ", postResult);
             }
-            /* let current = postsPerPage * postPage; */
-            /* leftAngle.style.display = "block";
-            circleLeft.style.display = "block"; */
             console.log("Counter: ", counter);
-            console.log("Total posts: ", results);
+            console.log("Total posts: ", postResult);
             pageResult = postResult.reverse().slice(postsPerPage);
             let index = postResult.indexOf(pageResult[0]);
             console.log("Index:", index);
@@ -116,29 +127,33 @@ async function getLatestPosts(){
                     circleRight.style.display = "none";
                     leftAngle.style.display = "block";
                     circleLeft.style.display = "block";
+                    postResult = pageResult;
+                    console.log("Posts: ", postResult);
+                    counter = 0;
                     break;     
                 }   
                 createHTML(postResult);
-                console.log("I: ", i);  
+                console.log("I: ", pageResult.length);  
             
-               
             }
-            if(postPage == 1){
+            if(counter == 0){
                 leftAngle.style.display = "none";
                 circleLeft.style.display = "none";
                 rightAngle.style.display = "block";
                 circleRight.style.display = "block";
-                postResult = results;
+                postResult = results.reverse();
+                index = postResult.indexOf(results[0]);
+                console.log(counter);
+                console.log("Posts reversed: ", postResult);
+                
+
             }
             else{
                 postResult = pageResult.reverse();
                 console.log("Page: ", postPage);
                 
             }
-            
-        })     
-            
-             
+        })            
     }
     catch(error){
         if(latestPosts){
@@ -176,3 +191,14 @@ function detectViewport(){
     }
     return postsPerPage;
 }
+function getMaxPages(results){
+    maxPages = results.length/postsPerPage;
+    if(results.length % postsPerPage != 0){
+        maxPages += 1;
+    }
+    console.log("Maxpages: ", Math.trunc(maxPages));
+    maxPages = Math.trunc(maxPages);
+    return maxPages;
+}
+
+  

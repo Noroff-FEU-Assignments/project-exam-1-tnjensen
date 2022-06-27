@@ -76,10 +76,10 @@ async function getLatestPosts(){
                 console.log("Elements left: ", pageResult.length);
                 for(i = index; i < postsPerPage + index; i++){
                     if(!postResult[i]){
-                       /*  rightAngle.style.display = "none";
-                        circleRight.style.display = "none"; */
-                        /* leftAngle.style.display = "block";
-                        circleLeft.style.display = "block"; */
+                        rightAngle.style.display = "none";
+                        circleRight.style.display = "none";
+                        leftAngle.style.display = "block";
+                        circleLeft.style.display = "block";
                         console.log("Posts reversed: ", postResult);
                         console.log("Post page: ", postPage);
                         console.log("Maxpages: ", maxPages);
@@ -87,32 +87,38 @@ async function getLatestPosts(){
                         index = postResult.indexOf(postResult[0]);
                         console.log("Index: ", index);
                         console.log("Page result: ", pageResult);
-                        
                         console.log("I: ", postResult);
                         break;
-                    }   
+                    }
                     
                     createHTML(postResult);
-                           
-                   
+                             
                 }   
-                
+                if(maxPages === postPage){
+                    postResult = results.reverse();
+                    index = postResult.indexOf(postResult[postResult.length -1]);
+                    /* pageResult = postResult.slice(postsPerPage); */
+                    rightAngle.style.display = "none";
+                    circleRight.style.display = "none";
+                    leftAngle.style.display = "block";
+                    circleLeft.style.display = "block";
+                    console.log("Max post result: ", postResult);   
+                }   
                     postResult = pageResult;
                     console.log("Page: ", postPage);
-                    console.log("Post result: ", postResult);
+                    console.log("Normal post result: ", postResult);
                 
             }
-            
-           
-            
+               
         });
         circleLeft.addEventListener('click', function(){
             latestPosts.innerHTML = "";
             counter--;
             postPage = counter + 1;
             console.log("Post result: ", postResult);
-            if(postResult.length < postsPerPage){
-                postResult = results;
+            if(postResult.length <= postsPerPage){
+                postResult = results.reverse();
+
                 console.log("Post result: ", postResult);
             }
             console.log("Counter: ", counter);
@@ -127,7 +133,7 @@ async function getLatestPosts(){
                     circleRight.style.display = "none";
                     leftAngle.style.display = "block";
                     circleLeft.style.display = "block";
-                    postResult = pageResult;
+                    postResult = results.reverse();
                     console.log("Posts: ", postResult);
                     counter = 0;
                     break;     
@@ -142,8 +148,8 @@ async function getLatestPosts(){
                 rightAngle.style.display = "block";
                 circleRight.style.display = "block";
                 postResult = results.reverse();
-                index = postResult.indexOf(results[0]);
-                console.log(counter);
+                index = postResult.indexOf(postResult[0]);
+                console.log("Counter: ", counter);
                 console.log("Posts reversed: ", postResult);
                 
 
@@ -187,7 +193,7 @@ function detectViewport(){
         postsPerPage = 2; 
     }
     if(window.innerWidth >= desktop){
-        postsPerPage = 4;
+        postsPerPage = 5;
     }
     return postsPerPage;
 }

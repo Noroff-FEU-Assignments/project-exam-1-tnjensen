@@ -27,10 +27,6 @@ for(let i = 0; i < links.length;i++){
     }
 }
 document.onload = detectViewport();
-/* visualViewport.onresize = function(){
-    document.location.reload(true);
-    
-}; */
 
 async function getLatestPosts(){
     try{
@@ -42,10 +38,7 @@ async function getLatestPosts(){
         loader.classList.remove('loading-indicator');
         leftAngle.style.display = "none";
         circleLeft.style.display = "none";
-        console.log("Total posts: ", results);
         getMaxPages(results);
-        
-        console.log("Posts per page: ", postsPerPage); 
     
         for(i = 0; i < postsPerPage; i++){
             createHTML(results); 
@@ -65,31 +58,20 @@ async function getLatestPosts(){
                 postPage = counter + 1;
                 if(postResult.length == postsPerPage){
                     postResult = results.reverse();
-                    console.log("Post result: ", postResult.length);
                 }
                 leftAngle.style.display = "none";
                 circleLeft.style.display = "none";
-                console.log("Counter: ", counter);
-                console.log("Page: ", postPage);
                 pageResult = postResult.slice(postsPerPage);
                 console.log("Page result: ", pageResult);
                 let index = postResult.indexOf(pageResult[0]);
-                console.log("Index:", index);
-                console.log("Elements left: ", pageResult.length);
                 for(i = index; i < postsPerPage + index; i++){
                     if(!postResult[i]){
                         rightAngle.style.display = "none";
                         circleRight.style.display = "none";
                         leftAngle.style.display = "block";
                         circleLeft.style.display = "block";
-                        console.log("Posts reversed: ", postResult);
-                        console.log("Post page: ", postPage);
-                        console.log("Maxpages: ", maxPages);
                         pageResult = results;
                         index = postResult.indexOf(postResult[0]);
-                        console.log("Index: ", index);
-                        console.log("Page result: ", pageResult);
-                        console.log("I: ", postResult);
                         break;
                     }
                     
@@ -102,13 +84,10 @@ async function getLatestPosts(){
                     rightAngle.style.display = "none";
                     circleRight.style.display = "none";
                     leftAngle.style.display = "block";
-                    circleLeft.style.display = "block";
-                    console.log("Max post result: ", postResult);   
+                    circleLeft.style.display = "block";  
                 }  
                 else{
                     postResult = pageResult;
-                    console.log("Page: ", postPage);
-                    console.log("Normal post result: ", postResult);
                 } 
             }
                
@@ -117,17 +96,11 @@ async function getLatestPosts(){
             latestPosts.innerHTML = "";
             counter--;
             postPage = counter + 1;
-            console.log("Total reversed posts: ", postResult);
-            console.log("Counter: ", counter);
-            console.log("Total posts: ", postResult);
             pageResult = postResult.reverse().slice(postsPerPage);
             let index = postResult.indexOf(pageResult[0]);
-            console.log("Index:", index);
-            console.log("Elements left: ", pageResult);
             if(counter == 0){
                 postResult = results;
                 index = postResult.indexOf(postResult[0]);
-                console.log("First page result: ", postResult);
             }
             for(i = index; i < postsPerPage+index; i++){
                 if(!postResult[i]){
@@ -136,29 +109,20 @@ async function getLatestPosts(){
                     leftAngle.style.display = "block";
                     circleLeft.style.display = "block";
                     postResult = results.reverse();
-                    console.log("Stopped posts: ", postResult);
                     counter = 0;
                     break;     
                 }   
-                createHTML(postResult);
-                console.log("I: ", pageResult.length);  
-            
+                createHTML(postResult); 
             }
             if(counter == 0){
                 leftAngle.style.display = "none";
                 circleLeft.style.display = "none";
                 rightAngle.style.display = "block";
                 circleRight.style.display = "block";
-                console.log("Counter: ", counter);
-                console.log("Posts reversed: ", postResult);
-                
-
             }
             else
             {
                 postResult = pageResult.reverse();
-                console.log("Page: ", postPage);
-                
             }
         })            
     }
@@ -187,7 +151,6 @@ window.addEventListener('mouseup', function(event){
         menuButton.classList.remove('visible');
     }
 })
-/* visualViewport.addEventListener('resize', detectViewport); */
 
 function detectViewport(){
     if(window.innerWidth <= mobile){
@@ -204,7 +167,6 @@ function getMaxPages(results){
     if(results.length % postsPerPage != 0){
         maxPages += 1;
     }
-    console.log("Maxpages: ", Math.trunc(maxPages));
     maxPages = Math.trunc(maxPages);
     return maxPages;
 }

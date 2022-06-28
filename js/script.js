@@ -17,7 +17,6 @@ let postPage = 0;
 let mobile = 699;
 let desktop = 700;
 let i;
-let index = 0;
 
 const menuButton = document.querySelector('.menu-btn');
 
@@ -48,21 +47,14 @@ async function getLatestPosts(){
             latestPosts.innerHTML = "";
             if(maxPages == postPage){
                 counter = 0;
-                for(i = 0; i < postsPerPage; i++){
-                    createHTML(results);
-                }   
             } 
             else
             {
                 counter++;
                 postPage = counter + 1;
-                if(postResult.length == postsPerPage){
-                    postResult = results.reverse();
-                }
                 leftAngle.style.display = "none";
                 circleLeft.style.display = "none";
                 pageResult = postResult.slice(postsPerPage);
-                console.log("Page result: ", pageResult);
                 let index = postResult.indexOf(pageResult[0]);
                 for(i = index; i < postsPerPage + index; i++){
                     if(!postResult[i]){
@@ -71,7 +63,6 @@ async function getLatestPosts(){
                         leftAngle.style.display = "block";
                         circleLeft.style.display = "block";
                         pageResult = results;
-                        index = postResult.indexOf(postResult[0]);
                         break;
                     }
                     
@@ -80,7 +71,7 @@ async function getLatestPosts(){
                 }   
                 if(maxPages === postPage){
                     postResult = results.reverse();
-                    index = postResult.indexOf(postResult[postResult.length -1]);
+                    console.log("Last page result: ", postResult);
                     rightAngle.style.display = "none";
                     circleRight.style.display = "none";
                     leftAngle.style.display = "block";
@@ -96,19 +87,25 @@ async function getLatestPosts(){
             latestPosts.innerHTML = "";
             counter--;
             postPage = counter + 1;
-            pageResult = postResult.reverse().slice(postsPerPage);
-            let index = postResult.indexOf(pageResult[0]);
             if(counter == 0){
                 postResult = results;
                 index = postResult.indexOf(postResult[0]);
             }
+            else{
+                postResult.reverse();
+                pageResult = postResult.slice(postsPerPage);
+                index = postResult.indexOf(postResult[postsPerPage]);
+            }
+            
+            
+           
             for(i = index; i < postsPerPage+index; i++){
                 if(!postResult[i]){
                     rightAngle.style.display = "none";
                     circleRight.style.display = "none";
                     leftAngle.style.display = "block";
                     circleLeft.style.display = "block";
-                    postResult = results.reverse();
+                    postResult = results;
                     counter = 0;
                     break;     
                 }   
@@ -122,7 +119,7 @@ async function getLatestPosts(){
             }
             else
             {
-                postResult = pageResult.reverse();
+                postResult = pageResult;
             }
         })            
     }

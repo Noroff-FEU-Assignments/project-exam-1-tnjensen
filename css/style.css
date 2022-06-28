@@ -673,17 +673,11 @@ footer{
     .latest-post{
         max-width: 23%;
     }
-    /* .circle-icon{
-        background-color: #fffefe;
-    }
-    .fa-angle-left, .fa-angle-right{
-        color: #60B1F8;
-    } */
     .right{
-        right: 60px;
+        right: 30px;
     }
     .left{
-        left:60px;
+        left:30px;
     }
     .left:hover, .right:hover{
         opacity: .8;

@@ -8,7 +8,6 @@ const rightAngle = document.querySelector('.fa-angle-right');
 const circleLeft = document.querySelector('.left');
 const circleRight = document.querySelector('.right');
 let counter = 0;
-let maxPosts = 0;
 let maxPages = 0;
 let postsPerPage = 0;
 let postResult = [];

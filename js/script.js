@@ -14,8 +14,8 @@ let postsPerPage = 0;
 let postResult = [];
 let pageResult = [];
 let postPage = 0;
-let mobile = 499;
-let desktop = 500;
+let mobile = 699;
+let desktop = 700;
 let i;
 let index = 0;
 
@@ -99,7 +99,6 @@ async function getLatestPosts(){
                 if(maxPages === postPage){
                     postResult = results.reverse();
                     index = postResult.indexOf(postResult[postResult.length -1]);
-                    /* pageResult = postResult.slice(postsPerPage); */
                     rightAngle.style.display = "none";
                     circleRight.style.display = "none";
                     leftAngle.style.display = "block";
@@ -150,8 +149,6 @@ async function getLatestPosts(){
                 circleLeft.style.display = "none";
                 rightAngle.style.display = "block";
                 circleRight.style.display = "block";
-                /* postResult = results.reverse();
-                index = postResult.indexOf(postResult[0]); */
                 console.log("Counter: ", counter);
                 console.log("Posts reversed: ", postResult);
                 
@@ -190,7 +187,7 @@ window.addEventListener('mouseup', function(event){
         menuButton.classList.remove('visible');
     }
 })
-visualViewport.addEventListener('resize', detectViewport);
+/* visualViewport.addEventListener('resize', detectViewport); */
 
 function detectViewport(){
     if(window.innerWidth <= mobile){

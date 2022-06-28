@@ -27,10 +27,10 @@ for(let i = 0; i < links.length;i++){
     }
 }
 document.onload = detectViewport();
-/* visualViewport.onresize = function(){
+visualViewport.onresize = function(){
     document.location.reload(true);
     
-}; */
+};
 
 async function getLatestPosts(){
     try{
@@ -58,7 +58,9 @@ async function getLatestPosts(){
                     createHTML(results);
                     postPage = 1; 
                 }   
-            }else{
+            } 
+            else
+            {
                 counter++;
                 postPage = counter + 1;
                 if(postResult.length == postsPerPage){
@@ -103,11 +105,12 @@ async function getLatestPosts(){
                     leftAngle.style.display = "block";
                     circleLeft.style.display = "block";
                     console.log("Max post result: ", postResult);   
-                }   
+                }  
+                else{
                     postResult = pageResult;
                     console.log("Page: ", postPage);
                     console.log("Normal post result: ", postResult);
-                
+                } 
             }
                
         });
@@ -115,18 +118,18 @@ async function getLatestPosts(){
             latestPosts.innerHTML = "";
             counter--;
             postPage = counter + 1;
-            console.log("Post result: ", postResult);
-            if(postResult.length <= postsPerPage){
-                postResult = results.reverse();
-
-                console.log("Post result: ", postResult);
-            }
+            console.log("Total reversed posts: ", postResult);
             console.log("Counter: ", counter);
             console.log("Total posts: ", postResult);
             pageResult = postResult.reverse().slice(postsPerPage);
             let index = postResult.indexOf(pageResult[0]);
             console.log("Index:", index);
             console.log("Elements left: ", pageResult);
+            if(counter == 0){
+                postResult = results;
+                index = postResult.indexOf(postResult[0]);
+                console.log("First page result: ", postResult);
+            }
             for(i = index; i < postsPerPage+index; i++){
                 if(!postResult[i]){
                     rightAngle.style.display = "none";
@@ -134,7 +137,7 @@ async function getLatestPosts(){
                     leftAngle.style.display = "block";
                     circleLeft.style.display = "block";
                     postResult = results.reverse();
-                    console.log("Posts: ", postResult);
+                    console.log("Stopped posts: ", postResult);
                     counter = 0;
                     break;     
                 }   
@@ -147,14 +150,15 @@ async function getLatestPosts(){
                 circleLeft.style.display = "none";
                 rightAngle.style.display = "block";
                 circleRight.style.display = "block";
-                postResult = results.reverse();
-                index = postResult.indexOf(postResult[0]);
+                /* postResult = results.reverse();
+                index = postResult.indexOf(postResult[0]); */
                 console.log("Counter: ", counter);
                 console.log("Posts reversed: ", postResult);
                 
 
             }
-            else{
+            else
+            {
                 postResult = pageResult.reverse();
                 console.log("Page: ", postPage);
                 
@@ -186,14 +190,14 @@ window.addEventListener('mouseup', function(event){
         menuButton.classList.remove('visible');
     }
 })
-/* visualViewport.addEventListener('resize', detectViewport); */
+visualViewport.addEventListener('resize', detectViewport);
 
 function detectViewport(){
     if(window.innerWidth <= mobile){
         postsPerPage = 2; 
     }
     if(window.innerWidth >= desktop){
-        postsPerPage = 5;
+        postsPerPage = 4;
     }
     return postsPerPage;
 }

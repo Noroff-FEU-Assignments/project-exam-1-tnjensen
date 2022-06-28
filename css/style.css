@@ -234,21 +234,20 @@ a.active{
     border-radius: 50%;
 }
 .left{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    /* top: 50%;
+    transform: translateY(-50%); */
     left: 10px;
 }
 .right{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    /* top: 50%;
+    transform: translateY(-50%); */
     right: 10px;
 }
 .fa-angle-left, .fa-angle-right{
     position: relative;
-    top: 4px;
-    right: -10px;
+    top: 5px;
 }
 .fa-angle-left{
     left: 13px;
@@ -550,6 +549,9 @@ footer{
     .latest-post p{
         display: block;
     }
+    .fa-angle-left, .fa-angle-right{
+        top: 4px;
+    }
     .modal-content img{
         width: 100%;
     }
@@ -678,9 +680,6 @@ footer{
     }
     .left{
         left:30px;
-    }
-    .left:hover, .right:hover{
-        opacity: .8;
     }
     .about-item{
         width: 25%;

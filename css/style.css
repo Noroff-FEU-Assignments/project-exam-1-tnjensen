@@ -247,7 +247,7 @@ a.active{
 }
 .fa-angle-left, .fa-angle-right{
     position: relative;
-    top: 5px;
+    top: 6px;
 }
 .fa-angle-left{
     left: 13px;

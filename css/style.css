@@ -490,11 +490,12 @@ hr{
     display: flex;
     flex-direction: column;
     padding: 20px 0;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 .contact-location, .contact-form{
-    margin-bottom: 10px;
+    margin: 0 30px;
+    margin-bottom: 20px;
 }
 .contact-form-details{
     display: flex;
@@ -650,8 +651,8 @@ footer{
         padding: 0 10px;
     }
     #embedmap {
-        width: 350px !important;
-        height: 350px !important;
+        width: 300px !important;
+        height: 300px !important;
     }
     .contact .main-content{
         flex-direction: row;

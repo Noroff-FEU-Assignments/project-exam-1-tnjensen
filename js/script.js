@@ -42,7 +42,8 @@ async function getLatestPosts(){
     
         for(i = 0; i < postsPerPage; i++){
             createHTML(results); 
-        }   
+        } 
+
         circleRight.addEventListener('click', function(){
             latestPosts.innerHTML = "";
             if(maxPages == postPage){
@@ -89,9 +90,9 @@ async function getLatestPosts(){
                 else{
                     postResult = pageResult;
                 } 
-            }
-               
+            }      
         });
+        
         circleLeft.addEventListener('click', function(){
             latestPosts.innerHTML = "";
             counter--;

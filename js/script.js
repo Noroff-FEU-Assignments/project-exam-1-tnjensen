@@ -63,10 +63,8 @@ async function getLatestPosts(){
                         circleLeft.style.display = "block";
                         pageResult = results;
                         break;
-                    }
-                    
-                    createHTML(postResult);
-                             
+                    }  
+                    createHTML(postResult);        
                 }   
                 if(maxPages === postPage){
                     postResult = results.reverse();
@@ -94,10 +92,7 @@ async function getLatestPosts(){
                 postResult.reverse();
                 pageResult = postResult.slice(postsPerPage);
                 index = postResult.indexOf(postResult[postsPerPage]);
-            }
-            
-            
-           
+            }    
             for(i = index; i < postsPerPage+index; i++){
                 if(!postResult[i]){
                     rightAngle.style.display = "none";

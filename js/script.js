@@ -27,10 +27,10 @@ for(let i = 0; i < links.length;i++){
     }
 }
 document.onload = detectViewport();
-visualViewport.onresize = function(){
+/* visualViewport.onresize = function(){
     document.location.reload(true);
     
-};
+}; */
 
 async function getLatestPosts(){
     try{
@@ -201,6 +201,7 @@ function detectViewport(){
     }
     return postsPerPage;
 }
+
 function getMaxPages(results){
     maxPages = results.length/postsPerPage;
     if(results.length % postsPerPage != 0){

@@ -50,7 +50,6 @@ async function getLatestPosts(){
                 counter = 0;
                 for(i = 0; i < postsPerPage; i++){
                     createHTML(results);
-                    postPage = 1; 
                 }   
             } 
             else
@@ -92,7 +91,7 @@ async function getLatestPosts(){
                 } 
             }      
         });
-        
+
         circleLeft.addEventListener('click', function(){
             latestPosts.innerHTML = "";
             counter--;

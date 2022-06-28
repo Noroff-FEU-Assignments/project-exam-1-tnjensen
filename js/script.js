@@ -85,15 +85,14 @@ async function getLatestPosts(){
             counter--;
             postPage = counter + 1;
             if(counter == 0){
-                postResult = results;
+                postResult = results.reverse();
                 index = postResult.indexOf(postResult[0]);
             }
             else{
-                postResult.reverse();
                 pageResult = postResult.slice(postsPerPage);
                 index = postResult.indexOf(postResult[postsPerPage]);
             }    
-            for(i = index; i < postsPerPage+index; i++){
+            for(i = index; i < postsPerPage + index; i++){
                 if(!postResult[i]){
                     rightAngle.style.display = "none";
                     circleRight.style.display = "none";

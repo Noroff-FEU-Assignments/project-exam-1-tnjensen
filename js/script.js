@@ -117,7 +117,6 @@ function getMaxPages(results){
     if(results.length % postsPerPage != 0){
         maxPages += 1;
     }
-    console.log("Maxpages: ", Math.trunc(maxPages));
     maxPages = Math.trunc(maxPages);
     return maxPages;
 }

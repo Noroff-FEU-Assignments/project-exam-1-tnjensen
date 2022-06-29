@@ -37,101 +37,60 @@ async function getLatestPosts(){
         leftAngle.style.display = "none";
         circleLeft.style.display = "none";
         getMaxPages(results);
-    
-        for(i = 0; i < postsPerPage; i++){
-            createHTML(results); 
-        } 
-
+        createHTML(results);
+        
         circleRight.addEventListener('click', function(){
             latestPosts.innerHTML = "";
-            if(maxPages == postPage){
-                counter = 0;
-            } 
-            else
-            {
-                counter++;
-                postPage = counter + 1;
-                leftAngle.style.display = "none";
-                circleLeft.style.display = "none";
-                pageResult = postResult.slice(postsPerPage);
-                let index = postResult.indexOf(pageResult[0]);
-                for(i = index; i < postsPerPage + index; i++){
-                    if(!postResult[i]){
-                        rightAngle.style.display = "none";
-                        circleRight.style.display = "none";
-                        leftAngle.style.display = "block";
-                        circleLeft.style.display = "block";
-                        pageResult = results;
-                        break;
-                    }  
-                    createHTML(postResult);        
-                }   
-                if(maxPages === postPage){
-                    postResult = results.reverse();
-                    console.log("Last page result: ", postResult);
-                    rightAngle.style.display = "none";
-                    circleRight.style.display = "none";
-                    leftAngle.style.display = "block";
-                    circleLeft.style.display = "block";  
-                }  
-                else{
-                    postResult = pageResult;
-                } 
-            }      
-        });
-
+            counter++;
+            postPage = counter + 1;
+            buildPage(postResult);
+        })
         circleLeft.addEventListener('click', function(){
             latestPosts.innerHTML = "";
             counter--;
             postPage = counter + 1;
-            if(counter == 0){
-                postResult = results;
-                index = postResult.indexOf(postResult[0]);
-            }
-            else{
-                postResult.reverse();
-                pageResult = postResult.slice(postsPerPage);
-                index = postResult.indexOf(postResult[postsPerPage]);
-            }    
-            for(i = index; i < postsPerPage + index; i++){
-                if(!postResult[i]){
-                    rightAngle.style.display = "none";
-                    circleRight.style.display = "none";
-                    leftAngle.style.display = "block";
-                    circleLeft.style.display = "block";
-                    postResult = results;
-                    counter = 0;
-                    break;     
-                }   
-                createHTML(postResult); 
-            }
-            if(counter == 0){
-                leftAngle.style.display = "none";
-                circleLeft.style.display = "none";
-                rightAngle.style.display = "block";
-                circleRight.style.display = "block";
-            }
-            else
-            {
-                postResult = pageResult;
-            }
-        })            
+            buildPage(postResult);
+        })
     }
     catch(error){
         if(latestPosts){
             latestPosts.innerHTML = `Error: ` + error;
-        }
-            
+        }     
     }
 }
 getLatestPosts();
 
-function createHTML(results){
-    latestPosts.innerHTML += `<div class="latest-post">
-    <a href="blog-detail.html?id=${results[i].id}"><img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" /></a>
-    <h3>${results[i].title.rendered}</h3>
-    <p>${results[i].excerpt.rendered}</p>
-    </div>`; 
+function buildPage(results){
+    let indexStart = counter * postsPerPage;
+    let indexEnd = indexStart + postsPerPage;
+    pageResult = results.slice(indexStart, indexEnd);
+    createHTML(pageResult);
+}
+
+function createHTML(results){ 
+    if(maxPages == postPage){
+        rightAngle.style.display = "none";
+        circleRight.style.display = "none";
+        leftAngle.style.display = "block";
+        circleLeft.style.display = "block";
+    }else if( counter == 0){
+        rightAngle.style.display = "block";
+        circleRight.style.display = "block";
+        leftAngle.style.display = "none";
+        circleLeft.style.display = "none";
+    }   
+    for(i = 0; i < postsPerPage; i++){ 
+        if(!results[i]){
+            break;
+        }else{
+            latestPosts.innerHTML += `<div class="latest-post">
+            <a href="blog-detail.html?id=${results[i].id}"><img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}" /></a>
+            <h3>${results[i].title.rendered}</h3>
+            <p>${results[i].excerpt.rendered}</p>
+            </div>`; 
+        }
+    }
+    
 }
 menuButton.addEventListener('click', function(){
     menuButton.classList.toggle('visible');
@@ -158,6 +117,7 @@ function getMaxPages(results){
     if(results.length % postsPerPage != 0){
         maxPages += 1;
     }
+    console.log("Maxpages: ", Math.trunc(maxPages));
     maxPages = Math.trunc(maxPages);
     return maxPages;
 }

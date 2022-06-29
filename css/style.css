@@ -235,14 +235,10 @@ a.active{
 }
 .left{
     position: relative;
-    /* top: 50%;
-    transform: translateY(-50%); */
     left: 10px;
 }
 .right{
     position: relative;
-    /* top: 50%;
-    transform: translateY(-50%); */
     right: 10px;
 }
 .fa-angle-left, .fa-angle-right{
@@ -685,12 +681,4 @@ footer{
         width: 25%;
         margin: 40px 10px;
     }
-}
-@media screen and (min-width: 1440px){
-    /* .circle-icon{
-        background-color: #fffefe;
-    }
-    .fa-angle-left, .fa-angle-right{
-        color: #60B1F8;
-    } */
 }

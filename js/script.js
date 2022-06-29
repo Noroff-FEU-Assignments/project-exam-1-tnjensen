@@ -14,6 +14,7 @@ let postResult = [];
 let pageResult = [];
 let postPage = 0;
 let mobile = 699;
+let height = 575.98;
 let desktop = 700;
 let i;
 
@@ -25,6 +26,11 @@ for(let i = 0; i < links.length;i++){
     }
 }
 document.onload = detectViewport();
+
+/* visualViewport.onresize = function(){
+    document.location.reload(true);
+    
+}; */
 
 async function getLatestPosts(){
     try{
@@ -102,12 +108,18 @@ window.addEventListener('mouseup', function(event){
     }
 })
 
+visualViewport.addEventListener('resize', detectViewport);
+
 function detectViewport(){
     if(window.innerWidth <= mobile){
         postsPerPage = 2; 
     }
     if(window.innerWidth >= desktop){
         postsPerPage = 4;
+    }
+    if(window.innerHeight <= height){
+        postsPerPage = 2; 
+        console.log(window.innerHeight);
     }
     return postsPerPage;
 }

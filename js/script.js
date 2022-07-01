@@ -119,7 +119,6 @@ function detectViewport(){
     }
     if(window.innerHeight <= height){
         postsPerPage = 2; 
-        console.log(window.innerHeight);
     }
     return postsPerPage;
 }

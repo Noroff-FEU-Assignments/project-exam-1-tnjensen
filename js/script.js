@@ -13,9 +13,9 @@ let postsPerPage = 0;
 let postResult = [];
 let pageResult = [];
 let postPage = 0;
-let mobile = 699;
+let mobile = 1023;
 let height = 575.98;
-let desktop = 700;
+let desktop = 1024;
 let i;
 
 const menuButton = document.querySelector('.menu-btn');
@@ -108,8 +108,8 @@ window.addEventListener('mouseup', function(event){
     }
 })
 
-visualViewport.addEventListener('resize', detectViewport);
-
+/* visualViewport.addEventListener('resize', detectViewport);
+ */
 function detectViewport(){
     if(window.innerWidth <= mobile){
         postsPerPage = 2; 

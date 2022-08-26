@@ -27,11 +27,6 @@ for(let i = 0; i < links.length;i++){
 }
 document.onload = detectViewport();
 
-/* visualViewport.onresize = function(){
-    document.location.reload(true);
-    
-}; */
-
 async function getLatestPosts(){
     try{
         let response = await fetch(url);
@@ -108,8 +103,6 @@ window.addEventListener('mouseup', function(event){
     }
 })
 
-/* visualViewport.addEventListener('resize', detectViewport);
- */
 function detectViewport(){
     if(window.innerWidth <= mobile){
         postsPerPage = 2; 

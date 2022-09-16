@@ -1,6 +1,6 @@
 ## Project Exam 1
 
-![image](https://github.com/Noroff-FEU-Assignments/project-exam-1-tnjensen/images/norway.jpg)
+![image](/images/norway.jpg)
 
 An assignment to show the skills learned over my first year of studies.
 

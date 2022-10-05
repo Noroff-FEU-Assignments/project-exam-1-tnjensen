@@ -9,6 +9,7 @@ const message = document.getElementById('message');
 const messageError = document.getElementById('message-error');
 const restRoot = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/';
 const contactDetails = document.querySelector('.contact-form-details');
+const loader = document.querySelector('.loader');
 
 function validateForm(event){
     event.preventDefault();

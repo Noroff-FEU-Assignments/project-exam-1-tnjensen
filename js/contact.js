@@ -19,28 +19,25 @@ function validateForm(event){
     }
     else{
         fullNameError.style.display = 'block';
-        return;
     }
     if(validateEmail(email.value)){
         emailError.style.display = 'none';
     }
     else{
         emailError.style.display = 'block';
-        return;
+    
     }
     if(checkLength(subject.value, 15)){
         subjectError.style.display = 'none';
     }
     else{
         subjectError.style.display = 'block';
-        return;
     }
     if(checkLength(message.value, 25)){
         messageError.style.display = 'none';
     }
     else{
         messageError.style.display = 'block';
-        return;
     }
     handleSubmit();
 }
@@ -71,18 +68,20 @@ async function handleSubmit(event) {
             'email': email.value,
         }
     });
+    if(fullName.value && subject.value && message.value && email.value){
+        let postUrl = restRoot + 'wp/v2/contacts';   
+        let response = await fetch(postUrl, {
+            method: 'post',
+            headers: {
+                "Content-type": "application/json",
+            'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbm9yb2ZmLnRuamVuc2VuLmNvbVwvYmxvZ3NpdGVfZXhhbTEiLCJpYXQiOjE2NjUwNjEzMDMsIm5iZiI6MTY2NTA2MTMwMywiZXhwIjoxNjY1NjY2MTAzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjEsImRldmljZSI6IiIsInBhc3MiOiJmZGY0ODJiNzI5NzNjZjg0ZjQxZWM5ZDZhZWY4ODhlZSJ9fX0.tn8WSWvjtVrDjHf2KLKJh6SuQglhR7urJYXuBXSe-gI'
+            },
+           body: data,  
+        })
+        .then(response => response.json())
+        .catch(error => console.log("Error: ", error))
+    }
 
-    let postUrl = restRoot + 'wp/v2/contacts';   
-    let response = await fetch(postUrl, {
-        method: 'post',
-        headers: {
-            "Content-type": "application/json",
-        'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbm9yb2ZmLnRuamVuc2VuLmNvbVwvYmxvZ3NpdGVfZXhhbTEiLCJpYXQiOjE2NTQ5MzYxMDMsIm5iZiI6MTY1NDkzNjEwMywiZXhwIjoxNjU1NTQwOTAzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjEsImRldmljZSI6IiIsInBhc3MiOiJmZGY0ODJiNzI5NzNjZjg0ZjQxZWM5ZDZhZWY4ODhlZSJ9fX0.CvJMyYhx25r40VGMf-Sxn5rVKLL9eWVRSFsIsVZ7CsM'
-        },
-       body: data,  
-    })
-    .then(response => response.json())
-    .ctch(error => console.log("Error: ", error))
 }
 
 async function getContacts(){

@@ -14,7 +14,6 @@ const emailError = document.getElementById('email-error');
 const selectFilter = document.querySelector('.select-filter');
 
 for(let i = 0; i < document.links.length;i++){
-    console.log(document.links[i])
     if(links[i] == document.URL){
         links[i].classList.add('active');
     }
@@ -136,24 +135,26 @@ async function handleSubmit(evt) {
         "email": email.value,
         "password": "0000"
     });
-
-    let postUrl = `https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register`;    
-    let result = await fetch(postUrl, {
-        method: 'post',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: data,
-    })
-    .then(result => result.json()) 
-    .then(result  => {
-        fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users?per_page=1')
-        .then(result => result.json())
-        if(result.id){
-            alert('Subscriber registered successfully.');
-            fullName.value = "";
-            email.value = "";
-        }
-    })
-    .catch(error => console.error('Error:', error));
+    if(fullName.value && email.value){
+        let postUrl = `https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users/register`;    
+        let result = await fetch(postUrl, {
+            method: 'post',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: data,
+        })
+        .then(result => result.json()) 
+        .then(result  => {
+            fetch('https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/users?per_page=1')
+            .then(result => result.json())
+            if(result.id){
+                alert('Subscriber registered successfully.');
+                fullName.value = "";
+                email.value = "";
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    
 }

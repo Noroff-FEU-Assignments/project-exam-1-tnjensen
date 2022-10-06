@@ -33,7 +33,7 @@ async function getPosts(){
             
             blogPosts.innerHTML = "";
             if(selectFilter.value === ""){
-                getPosts(results);
+                createHTML(results);
             }
             createHTML(filteredPosts); 
         })

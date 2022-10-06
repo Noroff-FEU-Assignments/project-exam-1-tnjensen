@@ -74,20 +74,22 @@ async function handleSubmit(evt) {
         author_email: email.value,
         content: comment.value,
     });
-
-    let postUrl = `https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments`;    
-    try{
-    let response = await fetch(postUrl, {
-        method: 'post',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: data,
-    });
+    if(fullName.value && email.value && comment.value){
+        let postUrl = `https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/wp/v2/comments`;    
+        try{
+        let response = await fetch(postUrl, {
+            method: 'post',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: data,
+        });
+        }
+        catch(error){
+            console.error('Error:', error)
+        };
     }
-    catch(error){
-        console.error('Error:', error)
-    };
+    
 }
 
 async function getComment(){

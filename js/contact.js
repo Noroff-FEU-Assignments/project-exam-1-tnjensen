@@ -1,3 +1,4 @@
+const links = document.querySelectorAll('nav a:not(.sidebar)');
 const form = document.getElementById('contactForm');
 const fullName = document.getElementById('fullName');
 const fullNameError = document.getElementById('fullName-error');
@@ -10,6 +11,12 @@ const messageError = document.getElementById('message-error');
 const restRoot = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/';
 const contactDetails = document.querySelector('.contact-form-details');
 const loader = document.querySelector('.loader');
+
+for(let i = 0; i < links.length; i++){
+    if(links[i] == document.URL){
+        links[i].classList.add('active');
+    }
+}
 
 function validateForm(event){
     event.preventDefault();

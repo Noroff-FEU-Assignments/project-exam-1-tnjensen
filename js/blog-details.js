@@ -18,6 +18,14 @@ const form = document.querySelector('#commentForm');
 const fullNameError = document.querySelector('#fullName-error');
 const emailError = document.querySelector('#email-error');
 const commentError = document.querySelector('#comment-error');
+const year = document.getElementById('year');
+
+let date = new Date().getFullYear();
+if( date > 2022){
+  year.innerHTML = `2022 - `+ date;
+}else{
+  year.innerHTML = date;
+}
 
 async function getPost(){
     try{

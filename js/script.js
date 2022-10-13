@@ -17,6 +17,14 @@ let mobile = 1023;
 let height = 575.98;
 let desktop = 1024;
 let i;
+const year = document.getElementById('year');
+
+let date = new Date().getFullYear();
+if( date > 2022){
+  year.innerHTML = `2022 - `+ date;
+}else{
+  year.innerHTML = date;
+}
 
 const menuButton = document.querySelector('.menu-btn');
 

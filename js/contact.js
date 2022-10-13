@@ -11,6 +11,14 @@ const messageError = document.getElementById('message-error');
 const restRoot = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/blogsite_exam1/wp-json/';
 const contactDetails = document.querySelector('.contact-form-details');
 const loader = document.querySelector('.loader');
+const year = document.getElementById('year');
+
+let date = new Date().getFullYear();
+if( date > 2022){
+  year.innerHTML = `2022 - `+ date;
+}else{
+  year.innerHTML = date;
+}
 
 for(let i = 0; i < links.length; i++){
     if(links[i] == document.URL){

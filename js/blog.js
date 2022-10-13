@@ -12,6 +12,14 @@ const fullNameError = document.getElementById('fullName-error');
 const email = document.getElementById('email');
 const emailError = document.getElementById('email-error');
 const selectFilter = document.querySelector('.select-filter');
+const year = document.getElementById('year');
+
+let date = new Date().getFullYear();
+if( date > 2022){
+  year.innerHTML = `2022 - `+ date;
+}else{
+  year.innerHTML = date;
+}
 
 for(let i = 0; i < document.links.length;i++){
     if(links[i] == document.URL){

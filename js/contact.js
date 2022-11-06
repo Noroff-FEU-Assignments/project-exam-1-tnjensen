@@ -12,6 +12,7 @@ const restRoot = 'https://noroffcors.herokuapp.com/https://noroff.tnjensen.com/b
 const contactDetails = document.querySelector('.contact-form-details');
 const loader = document.querySelector('.loader');
 const year = document.getElementById('year');
+const menuButton = document.querySelector('.menu-btn');
 
 let date = new Date().getFullYear();
 if( date > 2022){
@@ -25,7 +26,15 @@ for(let i = 0; i < links.length; i++){
         links[i].classList.add('active');
     }
 }
+menuButton.addEventListener('click', function(){
+    menuButton.classList.toggle('visible');
+});
 
+window.addEventListener('mouseup', function(event){
+    if(!event.target.closest('.menu-btn')){
+        menuButton.classList.remove('visible');
+    }
+})
 function validateForm(event){
     event.preventDefault();
 

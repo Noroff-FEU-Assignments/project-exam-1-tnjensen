@@ -13,9 +13,9 @@ let postsPerPage = 0;
 let postResult = [];
 let pageResult = [];
 let postPage = 0;
-let mobile = 1023;
+let mobile = 767;
 let height = 575.98;
-let desktop = 1024;
+let desktop = 768;
 let i;
 const year = document.getElementById('year');
 
@@ -34,6 +34,7 @@ for(let i = 0; i < links.length;i++){
     }
 }
 document.onload = detectViewport();
+console.log(postsPerPage);
 
 async function getLatestPosts(){
     try{
